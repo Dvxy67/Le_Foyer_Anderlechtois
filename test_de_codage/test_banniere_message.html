@@ -1,0 +1,368 @@
+<!-- Bannière d'annonce - À placer juste après la balise nav -->
+<div class="announcement-banner info">
+    <div class="container">
+      <div class="announcement-content">
+        <div class="alert-icon">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+        <div class="announcement-text">
+          <span class="announcement-title">Information importante</span>
+          <span class="message">Nouvelles permanences disponibles rue ... à partir du 1er juin 2025</span>
+        </div>
+        <div class="announcement-actions">
+          <a href="#" class="download-btn primary">
+            <i class="fas fa-file-download"></i>
+            <span>Horaires des permanences a telechager</span>
+          </a>
+          <div class="download-dropdown">
+            <button class="download-btn secondary">
+              <i class="fas fa-file-alt"></i>
+              <span>Autres documents</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#"><i class="fas fa-file-pdf"></i> rapport 2025</a>
+              <a href="#"><i class="fas fa-file-pdf"></i> evenements</a>
+              <a href="#"><i class="fas fa-file-pdf"></i> actu</a>
+            </div>
+          </div>
+        </div>
+        <button class="close-announcement" aria-label="Fermer l'annonce">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CSS à ajouter dans votre fichier home_styles.css -->
+  <style>
+  /* Styles pour la bannière d'annonce */
+  .announcement-banner {
+    width: 100%;
+    padding: 15px 0;
+    position: relative;
+    z-index: 900;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease forwards;
+  }
+  
+  /* Types de bannières avec différentes couleurs */
+  .announcement-banner.info {
+    background-color: #34b3a0;
+    color: white;
+  }
+  
+  .announcement-banner.alert {
+    background-color: #f23800;
+    color: white;
+  }
+  
+  .announcement-banner.reminder {
+    background-color: #f2a900;
+    color: #002856;
+  }
+  
+  .announcement-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .alert-icon {
+    font-size: 22px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .announcement-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .announcement-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  
+  .announcement-text .message {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .announcement-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .download-btn {
+    padding: 8px 16px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .download-btn.primary {
+    background-color: #002856;
+    color: white;
+  }
+  
+  .download-btn.primary:hover {
+    background-color: #001c3e;
+    transform: translateY(-2px);
+  }
+  
+  .download-btn.secondary {
+    background-color: white;
+    color: #002856;
+  }
+  
+  .download-btn.secondary:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+  }
+  
+  .download-btn i {
+    margin-right: 8px;
+  }
+  
+  .download-btn .fa-chevron-down {
+    margin-left: 8px;
+    margin-right: 0;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .download-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 220px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 5px;
+    padding: 10px 0;
+  }
+  
+  .dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .dropdown-content a i {
+    margin-right: 10px;
+    color: #002856;
+  }
+  
+  .download-dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .download-dropdown:hover .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+  
+  .close-announcement {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 5px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .close-announcement:hover {
+    opacity: 1;
+  }
+  
+  /* Animation pour la bannière */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Animation subtile pour le bouton principal */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(242, 56, 0, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 6px rgba(242, 56, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(242, 56, 0, 0);
+    }
+  }
+  
+  .download-btn.primary {
+    animation: pulse 2s infinite;
+  }
+  
+  /* Styles responsifs */
+  @media (max-width: 992px) {
+    .announcement-content {
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .announcement-text {
+      text-align: center;
+    }
+    
+    .alert-icon {
+      margin: 0 auto 5px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .announcement-content {
+      flex-direction: column;
+      padding: 10px;
+    }
+    
+    .announcement-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .download-btn, .download-dropdown {
+      width: 100%;
+    }
+    
+    .download-btn {
+      justify-content: center;
+    }
+    
+    .dropdown-content {
+      width: 100%;
+    }
+    
+    .close-announcement {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+  </style>
+  
+  <!-- JavaScript à ajouter avant la fermeture de body -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sélection des éléments
+    const closeBtn = document.querySelector('.close-announcement');
+    const banner = document.querySelector('.announcement-banner');
+    
+    // Vérifier si un cookie existe déjà pour cette annonce
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    
+    // Si l'annonce a déjà été fermée et que le cookie existe, on la masque
+    const announcementClosed = getCookie('announcement_closed');
+    if (announcementClosed === 'true') {
+      banner.style.display = 'none';
+    }
+    
+    // Gestion de la fermeture de la bannière
+    if (closeBtn && banner) {
+      closeBtn.addEventListener('click', function() {
+        // Animation de fermeture
+        banner.style.opacity = '0';
+        banner.style.transform = 'translateY(-20px)';
+        
+        // Après l'animation, on cache complètement la bannière
+        setTimeout(() => {
+          banner.style.display = 'none';
+          
+          // Ajustement de la marge supérieure pour la section d'accueil si nécessaire
+          const sectionAccueil = document.querySelector('.section-accueil');
+          if (sectionAccueil) {
+            sectionAccueil.style.marginTop = '0';
+          }
+        }, 300);
+        
+        // Créer un cookie pour se souvenir que l'utilisateur a fermé l'annonce
+        // Expire après 7 jours (ou ajuster selon vos besoins)
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 7);
+        document.cookie = `announcement_closed=true; expires=${expirationDate.toUTCString()}; path=/`;
+      });
+    }
+    
+    // Rotation de messages (facultatif - décommenter pour activer)
+    /*
+    const messages = [
+      "Nouvelles permanences disponibles dans le quartier Canal à partir du 1er juin 2025",
+      "Formulaires de demande de logement disponibles - Date limite: 15 juin 2025",
+      "Travaux de rénovation prévus dans les bâtiments de la rue Birmingham en juillet"
+    ];
+    
+    let currentIndex = 0;
+    const messageElement = document.querySelector('.announcement-text .message');
+    
+    function rotateMessages() {
+      if (!messageElement) return;
+      
+      // Animation de fondu
+      messageElement.style.opacity = '0';
+      
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % messages.length;
+        messageElement.textContent = messages[currentIndex];
+        messageElement.style.opacity = '1';
+      }, 500);
+    }
+    
+    // Changer de message toutes les 8 secondes
+    setInterval(rotateMessages, 8000);
+    
+    // Configuration des transitions pour le fondu
+    messageElement.style.transition = 'opacity 0.5s ease';
+    */
+  });
+  </script>
