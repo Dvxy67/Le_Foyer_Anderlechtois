@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar_responsive.css">
+    <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+      <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="asset/FA-logo full colors_RED.svg" alt="Logo Foyer Anderlechtois">
+        <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+      </a>
+      
+      <div class="menu-toggle">
+        <i class="fas fa-bars open-menu"></i>
+        <i class="fas fa-times close-menu"></i>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="home.html" class="active">Accueil</a></li>
+        <li><a href="je_suis_candidats.html">Je suis candidats</a></li>
+        <li><a href="habitant.html">Je suis habitants</a></li>
+        <li><a href="a_propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Scripts de la navbar -->
+  <script>
+    // Gestion de la navbar responsive
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    // Effet de la navbar au scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Fermer le menu en cliquant sur un lien
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+    
+    // Animation de scroll
+    document.querySelector('.scroll-indicator').addEventListener('click', function() {
+      document.querySelector('.section-carte').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    });
+  </script>
+  <!--fin du script de la navbar-->
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="test_navbar.css" rel="stylesheet">
+</head>
+<body>
+        <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="asset/FA-logo full colors_RED.svg" alt="Logo Foyer Anderlechtois">
+        <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+      </a>
+      
+      <div class="menu-toggle">
+        <i class="fas fa-bars open-menu"></i>
+        <i class="fas fa-times close-menu"></i>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="home.html" class="active">Accueil</a></li>
+        <li><a href="#">Je suis candidats</a></li>
+        <li><a href="habitant.html">Je suis habitants</a></li>
+        <li><a href="a_propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+      </ul>
+    </div>
+  </nav>
+</body>
+<script>
+    // Script pour la navbar responsive
+document.addEventListener('DOMContentLoaded', function() {
+  // Gestion du scroll
+  const navbar = document.querySelector('.navbar');
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // Menu mobile
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  menuToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+  });
+  
+  // Fermer le menu en cliquant sur un lien
+  const navItems = document.querySelectorAll('.nav-links a');
+  navItems.forEach(item => {
+    item.addEventListener('click', function() {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    });
+  });
+  
+  // Ajout de la classe active au lien actuel
+  const currentLocation = window.location.pathname;
+  navItems.forEach(item => {
+    const href = item.getAttribute('href');
+    if (currentLocation.includes(href) && href !== '#') {
+      item.classList.add('active');
+    }
+  });
+});
+</script>
+</html>

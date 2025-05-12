@@ -1,0 +1,773 @@
+/* variables couleurs de la navbar */
+:root {
+  --primary-color: #2a3990;
+  --primary-dark: #1e2a6e;
+  --primary-light: #3a49a0;
+  --secondary-color: #34b3a0;
+  --secondary-dark: #2a9083;
+  --secondary-light: #40d3bc;
+  --accent-color: #e74c3c;
+  --dark-color: #2c3e50;
+  --light-color: #f8f9fa;
+  --text-color: #333;
+  --text-light: #666;
+  --light-text: #fff;
+  --white: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 0;
+  z-index: 1000;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+  background-color: var(--primary-color);
+  padding: 5px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 60px;
+  transition: var(--transition);
+}
+
+.navbar.scrolled .logo img {
+  height: 45px;
+}
+
+.logo-text {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--light-color);
+  letter-spacing: 0.5px;
+}
+
+.logo-text span {
+  color: var(--secondary-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: var(--light-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 5px 0;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--light-text);
+}
+
+/* Responsive de la navbar */
+@media (max-width: 992px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 250px;
+    background-color: #002856;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .close-menu {
+    display: none;
+  }
+
+  .menu-toggle .open-menu {
+    display: block;
+  }
+
+  .menu-toggle .close-menu {
+    display: none;
+  }
+
+  .menu-toggle.active .open-menu {
+    display: none;
+  }
+
+  .menu-toggle.active .close-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-accueil h1 {
+    font-size: 2.2rem;
+  }
+
+  .section-accueil p {
+    font-size: 1.1rem;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .carte-container {
+    height: 400px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .navbar .logo-text {
+    font-size: 1rem;
+  }
+
+  .navbar .logo img {
+    height: 40px;
+  }
+
+  .navbar.scrolled .logo img {
+    height: 32px;
+  }
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 1rem;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 40px;
+  background-color: var(--secondary-color);
+}
+
+.footer-section p {
+  margin: 0.8rem 0;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin: 0.8rem 0;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-section ul li a::before {
+  content: '→';
+  margin-right: 8px;
+  color: var(--secondary-color);
+  transition: transform 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--white);
+}
+
+.footer-section ul li a:hover::before {
+  transform: translateX(3px);
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  background-color: #1a1a1a;
+  color: #999;
+}
+/* fin footer */
+
+/* Section 1: Présentation avec chevauchement */
+.presentation {
+  position: relative;
+  height: 500px;
+  margin-bottom: 80px;
+}
+
+.presentation-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.presentation-text {
+  position: absolute;
+  bottom: -50px;
+  right: 10%;
+  left: 10%;
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.presentation-text h2 {
+  margin-bottom: 20px;
+  color: #1a365d;
+  font-size: 32px;
+}
+
+/* Section 2: Chiffres clés */
+.chiffres-cles {
+  padding: 100px 10%;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.chiffres-cles h2 {
+  margin-bottom: 50px;
+  color: #1a365d;
+  font-size: 32px;
+}
+
+.chiffres-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.chiffre-item {
+  flex: 1;
+  min-width: 200px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.chiffre-item:hover {
+  transform: translateY(-10px);
+}
+
+.chiffre-nombre {
+  font-size: 42px;
+  font-weight: bold;
+  color: #3182ce;
+  margin-bottom: 10px;
+}
+
+.chiffre-desc {
+  font-size: 16px;
+  color: #4a5568;
+}
+
+/* Section 3: Carrousel */
+.carrousel-section {
+  padding: 80px 10%;
+}
+
+.carrousel-section h2 {
+  margin-bottom: 50px;
+  color: #1a365d;
+  font-size: 32px;
+  text-align: center;
+}
+
+.carrousel {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carrousel-items {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carrousel-item {
+  min-width: 100%;
+  padding: 20px;
+}
+
+.carrousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.carrousel-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carrousel-nav button {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.carrousel-nav button:hover {
+  background-color: #1a365d;
+}
+
+.carrousels-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.carrousel-container {
+  flex: 1;
+  width: 50%;
+  position: relative;
+}
+
+/* troisième section - Carte */
+.section-carte {
+  padding: 80px 20px;
+  background-color: white;
+}
+
+.section-carte h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #002856;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-carte h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #f2a900;
+}
+
+.carte-container {
+  max-width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.info-bulle {
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.info-bulle h3 {
+  margin-top: 0;
+  color: #002856;
+  border-bottom: 2px solid #f2a900;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.legende {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+  width: 200px;
+}
+
+.legende h4 {
+  margin-top: 0;
+  color: #002856;
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.legende-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.legende-couleur {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* section 4 (Les Missions) */
+.missions-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.missions-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+  position: relative;
+}
+
+.missions-title:after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #3498db;
+}
+
+.missions-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.mission-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 330px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.mission-icon {
+  background-color: #3498db;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-icon svg {
+  width: 60px;
+  height: 60px;
+  fill: white;
+}
+
+.mission-content {
+  padding: 1.5rem;
+}
+
+.mission-title {
+  color: #333;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.mission-description {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Effet de flou */
+.missions-container:hover .mission-card:not(:hover) {
+  filter: blur(3px);
+  transform: scale(0.95);
+  opacity: 0.7;
+}
+
+.mission-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .missions-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mission-card {
+    max-width: 100%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .presentation {
+    height: 350px;
+    margin-bottom: 100px;
+  }
+
+  .presentation-text {
+    padding: 25px;
+  }
+
+  .chiffres-container {
+    flex-direction: column;
+  }
+
+  .chiffre-item {
+    width: 100%;
+  }
+
+  .carrousel-item img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrousels-container {
+    flex-direction: column;
+  }
+
+  .carrousel-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Ici test pour les cardes avec images en desoous de la map */
+.map-container {
+  width: 100%;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin-bottom: 40px;
+  /* Votre carte existante s'affichera ici */
+}
+
+.image-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  width: 280px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-label {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Style pour écrans mobiles */
+@media (max-width: 600px) {
+  .image-cards-container {
+      gap: 20px;
+  }
+  
+  .image-card {
+      width: 220px;
+  }
+
+  .card-image {
+    height: 160px;
+  }
+}

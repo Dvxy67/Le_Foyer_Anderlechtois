@@ -1,0 +1,618 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root{
+    --primary-color: #2a3990;
+    --secondary-color: #34b3a0;
+    --accent-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #f8F9Fa;
+    --text-color: #333;
+    --light-text: #fff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 0;
+    z-index: 1000;
+    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+      
+.navbar.scrolled {
+    background-color: var(--primary-color);
+    padding: 5px 0;
+}
+      
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+      
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+      
+.logo img {
+    height: 60px;
+    transition: var(--transition);
+}
+      
+.navbar.scrolled .logo img {
+    height: 45px;
+}
+      
+.logo-text {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--light-color);
+    letter-spacing: 0.5px;
+}
+      
+.logo-text span {
+    color: var(--secondary-color);
+}
+      
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+      
+.nav-links li {
+    margin: 0 15px;
+}
+      
+.nav-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition)
+}
+      
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+    
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+      
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--light-text);
+}
+
+/* Responsive de la navbar */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 250px;
+        background-color: #002856;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    .close-menu {
+        display: none;
+    }
+
+    .menu-toggle .open-menu{
+        display: block;
+    }
+
+    .menu-toggle .close-menu{
+        display: none;
+    }
+
+    .menu-toggle.active .open-menu {
+        display: none;
+    }
+
+    .menu-toggle.active .close-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-accueil h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-accueil p {
+        font-size: 1.1rem;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .carte-container {
+        height: 400px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .navbar .logo-text {
+        font-size: 1rem;
+    }
+
+    .navbar .logo img {
+        height: 40px;
+    }
+
+    .navbar.scrolled .logo img {
+        height: 32px;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    padding-top: 170px; 
+
+}
+
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #2a3990;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 2rem 0;
+}
+  
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+  
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 1rem;
+}
+  
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+  
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 40px;
+    background-color: var(--secondary-color);
+}
+  
+.footer-section p {
+    margin: 0.8rem 0;
+    line-height: 1.5;
+    color: #ccc;
+}
+  
+.footer-section ul {
+    list-style: none;
+}
+  
+.footer-section ul li {
+    margin: 0.8rem 0;
+}
+  
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+  
+.footer-section ul li a::before {
+    content: '→';
+    margin-right: 8px;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+  
+.footer-section ul li a:hover {
+    color: var(--white);
+}
+  
+.footer-section ul li a:hover::before {
+    transform: translateX(3px);
+}
+  
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+  
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+  
+.social-icons a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+  
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    background-color: #1a1a1a;
+    color: #999;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+        
+/* Section d'information et chiffres clés */
+.info-section {
+    padding: 170px 0;
+    background-color: #f9f9f9;
+}
+        
+.info-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+        
+.info-text {
+    flex: 1;
+    min-width: 300px;
+}
+        
+.info-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+        
+.info-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+        
+.key-figures {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+        
+.figure-card {
+    flex: 1;
+    min-width: 120px;
+    max-width: 200px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+        
+.figure-card:hover {
+    transform: translateY(-5px);
+}
+        
+.figure-card .number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4285f4;
+    margin-bottom: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+        
+.figure-card .label {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    width: 100%;
+}
+        
+/* Section du Président */
+.president-section {
+    padding: 80px 0;
+}
+        
+.president-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+        
+.president-image {
+    flex: 1;
+    min-width: 300px;
+}
+        
+.president-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+        
+.president-message {
+    flex: 1;
+    min-width: 300px;
+}
+        
+.president-message h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+        
+.president-message p {
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+        
+.president-message .signature {
+    font-weight: 600;
+    font-size: 1.2rem;
+    }
+        
+.president-message .position {
+    color: #666;
+}
+        
+/* Section des engagements */
+.commitments-section {
+    padding: 80px 0;
+    background-color: #f5f7fa;
+}
+        
+.commitments-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+}
+        
+.commitments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+        
+.commitment-card {
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+        
+.commitment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+        
+.commitment-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #e8f0fe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+        
+.commitment-icon i {
+    font-size: 1.8rem;
+    color: #4285f4;
+}
+        
+.commitment-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+        
+/* Section rapport annuel */
+.report-section {
+    padding: 80px 0;
+    text-align: center;
+}
+        
+.report-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+        
+.report-section p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+        
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #4285f4;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+        
+.download-btn:hover {
+    background: #3367d6;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(66, 133, 244, 0.5);
+}
+        
+/* Responsive */
+@media (max-width: 768px) {
+    .info-section, .president-section, .commitments-section, .report-section {
+        padding: 60px 0;
+    }
+            
+    .info-text h1, .president-message h2, .commitments-section h2, .report-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0) translateX(-50%);
+          }
+          40% {
+            transform: translateY(-20px) translateX(-50%);
+          }
+          60% {
+            transform: translateY(-10px) translateX(-50%);
+          }
+        }
+        
+   

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie PDF Interactive | Babeleer</title>
+    <link rel="stylesheet" href="information_v2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="asset/FA-logo full colors_RED.svg" alt="Logo Foyer Anderlechtois">
+                <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+            </a>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars open-menu"></i>
+                <i class="fas fa-times close-menu"></i>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="je_suis_candidats.html">Je suis candidat</a></li>
+                <li><a href="habitant.html" class="active">Je suis habitant</a></li>
+                <li><a href="a_propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu latéral -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Infos</h3>
+            <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Basculer le menu latéral">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <ul class="sidebar-menu">
+                <li class="sidebar-item active">
+                    <a href="informations.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Galerie Babeleer</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="rapport.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Rapports</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="brochure.html">
+                        <i class="fas fa-book-open"></i>
+                        <span>Brochures</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="archives.html">
+                        <i class="fas fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="content-wrapper">
+        <!-- Fil d'Ariane -->
+        <div class="breadcrumb">
+            <div class="container">
+                <ul>
+                    <li><a href="home.html">Accueil</a></li>
+                    <li><a href="habitant.html">Je suis habitant</a></li>
+                    <li class="active">Galerie Babeleer</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Journal Babeleer</h1>
+            
+            <!-- Barre de recherche et filtres -->
+            <div class="search-filter-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Rechercher un document">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-options">
+                    <select id="sort-filter">
+                        <option value="recent">Plus récent</option>
+                        <option value="oldest">Plus ancien</option>
+                    </select>
+                    <div class="view-switch">
+                        <button class="view-btn active" id="grid-view" aria-label="Vue en grille"><i class="fas fa-th"></i></button>
+                        <button class="view-btn" id="list-view" aria-label="Vue en liste"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery" id="pdf-gallery">
+                <!-- Les éléments PDF seront générés ici dynamiquement -->
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour la visualisation PDF -->
+    <div class="modal" id="pdf-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-nav">
+                    <button class="modal-nav-btn" id="prev-pdf" aria-label="Document précédent" disabled><i class="fas fa-chevron-left"></i></button>
+                    <h3 class="modal-title" id="pdf-title">Visualisation du document</h3>
+                    <button class="modal-nav-btn" id="next-pdf" aria-label="Document suivant"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-action-btn" id="download-pdf" aria-label="Télécharger"><i class="fas fa-download"></i></button>
+                    <button class="modal-action-btn" id="share-pdf" aria-label="Partager"><i class="fas fa-share-alt"></i></button>
+                    <button class="modal-action-btn" id="zoom-in" aria-label="Zoom avant"><i class="fas fa-search-plus"></i></button>
+                    <button class="modal-action-btn" id="zoom-out" aria-label="Zoom arrière"><i class="fas fa-search-minus"></i></button>
+                    <button class="close-btn" onclick="closeModal()" aria-label="Fermer"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="pdf-loading" id="pdf-loading">
+                <div class="spinner"></div>
+                <p>Chargement du document...</p>
+            </div>
+            <div class="pdf-container">
+                <iframe id="pdf-viewer" src="" title="Visualiseur PDF"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Données pour les documents PDF avec plus d'informations
+        const pdfDocuments = [
+            {
+                id: 1,
+                title: "Babeleer n°15",
+                description: "Actualités du quartier, événements communautaires et informations sur les nouveaux projets de logement",
+                thumbnail: "http://127.0.0.1:5502/pdfs/250415-FA-Babeleer_%2315_FR.pdf",
+                url: "http://127.0.0.1:5502/pdfs/250415-FA-Babeleer_%2315_FR.pdf",
+                date: "15 Avril 2025",
+                pages: 12,
+                category: "actualité"
+            },
+            {
+                id: 2,
+                title: "Babeleer n°14",
+                description: "Focus sur les activités culturelles, initiatives locales et témoignages des résidents",
+                thumbnail: "http://127.0.0.1:5502/pdfs/241205-FA-Babeleer_%2314_FR_PRINT.pdf",
+                url: "http://127.0.0.1:5502/pdfs/241205-FA-Babeleer_%2314_FR_PRINT.pdf",
+                date: "10 Mars 2025",
+                pages: 10,
+                category: "culture"
+            },
+            {
+                id: 3,
+                title: "Babeleer n°13",
+                description: "Numéro spécial rénovation: conseils pratiques et calendrier des travaux prévus",
+                thumbnail: "http://127.0.0.1:5502/pdfs/240925_Maquette%20Babeleer_%2313_FR-3.pdf",
+                url: "http://127.0.0.1:5502/pdfs/240925_Maquette%20Babeleer_%2313_FR-3.pdf",
+                date: "28 Février 2025",
+                pages: 14,
+                category: "rénovation"
+            },
+            {
+                id: 4,
+                title: "Babeleer n°12",
+                description: "Dossier environnement: initiatives vertes et développement durable dans notre quartier",
+                thumbnail: "http://127.0.0.1:5502/pdfs/240703-FA-BABELEER12_DEF.pdf",
+                url: "http://127.0.0.1:5502/pdfs/240703-FA-BABELEER12_DEF.pdf",
+                date: "15 Février 2025",
+                pages: 8,
+                category: "environnement"
+            },
+            {
+                id: 5,
+                title: "Babeleer n°11",
+                description: "Retour sur les fêtes de quartier et annonces des événements à venir au printemps",
+                thumbnail: "http://127.0.0.1:5502/pdfs/240530-FA-BABE_MAI-JUIN_FR-2.pdf",
+                url: "http://127.0.0.1:5502/pdfs/240530-FA-BABE_MAI-JUIN_FR-2.pdf",
+                date: "30 Janvier 2025",
+                pages: 16,
+                category: "événements"
+            },
+            {
+                id: 6,
+                title: "Babeleer n°10",
+                description: "Spécial services aux résidents: guide des ressources disponibles et contacts utiles",
+                thumbnail: "/api/placeholder/200/250",
+                url: "https://www.example.com/sample.pdf",
+                date: "15 Janvier 2025",
+                pages: 12,
+                category: "services"
+            }
+        ];
+
+        const gallery = document.getElementById('pdf-gallery');
+        const modal = document.getElementById('pdf-modal');
+        const pdfViewer = document.getElementById('pdf-viewer');
+        const pdfTitle = document.getElementById('pdf-title');
+        const pdfLoading = document.getElementById('pdf-loading');
+        const searchInput = document.getElementById('search-input');
+        const sortFilter = document.getElementById('sort-filter');
+        const gridView = document.getElementById('grid-view');
+        const listView = document.getElementById('list-view');
+        const prevBtn = document.getElementById('prev-pdf');
+        const nextBtn = document.getElementById('next-pdf');
+        let currentDocIndex = 0;
+
+        // Fonction pour créer les éléments de la galerie
+        function createGallery(docs = pdfDocuments) {
+            gallery.innerHTML = ''; // Vider la galerie
+            
+            if (docs.length === 0) {
+                gallery.innerHTML = '<div class="no-results">Aucun document trouvé. Veuillez essayer une autre recherche.</div>';
+                return;
+            }
+            
+            docs.forEach((doc, index) => {
+                const pdfItem = document.createElement('div');
+                pdfItem.className = 'pdf-item';
+                pdfItem.setAttribute('data-id', doc.id);
+
+                // Structure différente selon la vue (grille ou liste)
+                if (gallery.classList.contains('list-view')) {
+                    pdfItem.innerHTML = `
+                        <div class="pdf-item-content">
+                            <div class="pdf-thumbnail">
+                                <img src="${doc.thumbnail}" alt="${doc.title}">
+                                <span class="pdf-pages">${doc.pages} pages</span>
+                            </div>
+                            <div class="pdf-info">
+                                <div class="pdf-header">
+                                    <h3 class="pdf-title">${doc.title}</h3>
+                                    <span class="pdf-category">${doc.category}</span>
+                                </div>
+                                <p class="pdf-description">${doc.description}</p>
+                                <div class="pdf-meta">
+                                    <span class="pdf-date"><i class="far fa-calendar-alt"></i> ${doc.date}</span>
+                                    <button class="view-button" aria-label="Voir le document" data-index="${index}">
+                                        Voir <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    pdfItem.innerHTML = `
+                        <div class="pdf-thumbnail">
+                            <img src="${doc.thumbnail}" alt="${doc.title}">
+                            <span class="pdf-pages">${doc.pages} pages</span>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-header">
+                                <h3 class="pdf-title">${doc.title}</h3>
+                                <span class="pdf-category">${doc.category}</span>
+                            </div>
+                            <p class="pdf-description">${doc.description}</p>
+                            <div class="pdf-meta">
+                                <span class="pdf-date"><i class="far fa-calendar-alt"></i> ${doc.date}</span>
+                                <button class="view-button" aria-label="Voir le document" data-index="${index}">
+                                    Voir <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Ajouter l'événement pour ouvrir le PDF
+                pdfItem.querySelector('.view-button').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    currentDocIndex = parseInt(e.target.closest('.view-button').dataset.index);
+                    openPDF(docs[currentDocIndex].url, docs[currentDocIndex].title);
+                    updateModalNavigation(currentDocIndex, docs.length);
+                });
+
+                // Ajouter l'événement pour toute la carte
+                pdfItem.addEventListener('click', () => {
+                    const index = docs.findIndex(d => d.id === parseInt(pdfItem.dataset.id));
+                    currentDocIndex = index;
+                    openPDF(docs[currentDocIndex].url, docs[currentDocIndex].title);
+                    updateModalNavigation(currentDocIndex, docs.length);
+                });
+
+                gallery.appendChild(pdfItem);
+            });
+        }
+
+        // Fonction pour mettre à jour les boutons de navigation de la modal
+        function updateModalNavigation(index, total) {
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === total - 1;
+        }
+
+        // Fonction pour ouvrir le PDF dans la modal avec animation
+        function openPDF(url, title) {
+            pdfTitle.textContent = title;
+            modal.style.display = 'block';
+            pdfLoading.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Empêcher le défilement du body
+            
+            // Simuler le chargement du PDF
+            setTimeout(() => {
+                pdfViewer.src = url;
+                pdfLoading.style.display = 'none';
+            }, 1500);
+            
+            // Déclencher l'animation
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+
+        // Fonction pour fermer la modal avec animation
+        function closeModal() {
+            modal.classList.remove('show');
+            
+            // Attendre la fin de l'animation avant de cacher complètement
+            setTimeout(() => {
+                modal.style.display = 'none';
+                pdfViewer.src = '';
+                document.body.style.overflow = 'auto'; // Réactiver le défilement du body
+            }, 300);
+        }
+
+        // Recherche et filtrage
+        function searchDocuments() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredDocs = pdfDocuments.filter(doc => 
+                doc.title.toLowerCase().includes(searchTerm) || 
+                doc.description.toLowerCase().includes(searchTerm) ||
+                doc.category.toLowerCase().includes(searchTerm)
+            );
+            
+            // Tri des documents
+            const sortOption = sortFilter.value;
+            if (sortOption === 'recent') {
+                filteredDocs.sort((a, b) => new Date(b.date) - new Date(a.date));
+            } else if (sortOption === 'oldest') {
+                filteredDocs.sort((a, b) => new Date(a.date) - new Date(b.date));
+            }
+            
+            createGallery(filteredDocs);
+        }
+
+        // Changer la vue (grille ou liste)
+        function toggleView(viewType) {
+            if (viewType === 'list') {
+                gallery.classList.add('list-view');
+                listView.classList.add('active');
+                gridView.classList.remove('active');
+            } else {
+                gallery.classList.remove('list-view');
+                gridView.classList.add('active');
+                listView.classList.remove('active');
+            }
+            createGallery();
+        }
+
+        // Navigation entre les documents dans la modal
+        function navigatePDF(direction) {
+            currentDocIndex += direction;
+            if (currentDocIndex < 0) currentDocIndex = 0;
+            if (currentDocIndex >= pdfDocuments.length) currentDocIndex = pdfDocuments.length - 1;
+            
+            const doc = pdfDocuments[currentDocIndex];
+            openPDF(doc.url, doc.title);
+            updateModalNavigation(currentDocIndex, pdfDocuments.length);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            createGallery();
+            
+            searchInput.addEventListener('input', searchDocuments);
+            sortFilter.addEventListener('change', searchDocuments);
+            
+            gridView.addEventListener('click', () => toggleView('grid'));
+            listView.addEventListener('click', () => toggleView('list'));
+            
+            prevBtn.addEventListener('click', () => navigatePDF(-1));
+            nextBtn.addEventListener('click', () => navigatePDF(1));
+            
+            // Gestion des touches du clavier
+            document.addEventListener('keydown', function(event) {
+                if (modal.style.display === 'block') {
+                    if (event.key === 'Escape') {
+                        closeModal();
+                    } else if (event.key === 'ArrowLeft' && !prevBtn.disabled) {
+                        navigatePDF(-1);
+                    } else if (event.key === 'ArrowRight' && !nextBtn.disabled) {
+                        navigatePDF(1);
+                    }
+                }
+            });
+            
+            // Fermer la modal si on clique en dehors du contenu
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+            
+            // Gestion de la navbar responsive
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+            
+            // Effet de la navbar au scroll
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Sidebar toggle
+            const sidebar = document.querySelector('.sidebar');
+            const contentWrapper = document.querySelector('.content-wrapper');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+                contentWrapper.classList.toggle('sidebar-collapsed');
+                
+                // Pour mobile
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.toggle('mobile-visible');
+                    document.body.classList.toggle('sidebar-open');
+                }
+                
+                // Pour tablette
+                if (window.innerWidth > 768 && window.innerWidth <= 992) {
+                    sidebar.classList.toggle('expanded');
+                }
+            });
+            
+            // Fermer le sidebar si on clique en dehors sur mobile
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768 && 
+                    !sidebar.contains(event.target) && 
+                    !event.target.closest('.menu-toggle') &&
+                    sidebar.classList.contains('mobile-visible')) {
+                    sidebar.classList.toggle('collapsed');
+                    contentWrapper.classList.toggle('sidebar-collapsed');
+                    sidebar.classList.toggle('mobile-visible');
+                    document.body.classList.toggle('sidebar-open');
+                }
+            });
+            
+            // Réinitialiser les classes si la fenêtre est redimensionnée
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    sidebar.classList.remove('mobile-visible', 'expanded');
+                    if (sidebar.classList.contains('collapsed')) {
+                        contentWrapper.classList.add('sidebar-collapsed');
+                    } else {
+                        contentWrapper.classList.remove('sidebar-collapsed');
+                    }
+                } else if (window.innerWidth > 768 && window.innerWidth <= 992) {
+                    sidebar.classList.remove('mobile-visible');
+                    document.body.classList.remove('sidebar-open');
+                } else {
+                    sidebar.classList.remove('expanded');
+                    contentWrapper.classList.remove('sidebar-collapsed');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="a_propos_styles.css">
+    <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Bande bleue pour la navbar -->
+    <div class="navbar-band"></div>
+    
+    <!-- Ici votre navbar existante -->
+    <div class="navbar-placeholder">
+        <!-- Emplacement pour votre navbar -->
+    </div>
+
+        <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="asset/FA-logo full colors_RED_no text.svg" alt="Logo Foyer Anderlechtois">
+        <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+      </a>
+      
+      <div class="menu-toggle">
+        <i class="fas fa-bars open-menu"></i>
+        <i class="fas fa-times close-menu"></i>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="home.html">Accueil</a></li>
+        <li><a href="je_suis_candidats.html">Je suis candidat</a></li>
+        <li><a href="habitant.html">Je suis habitant</a></li>
+        <li><a href="a_propos.html" class="active">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Scripts de la navbar -->
+    <script>
+        // Gestion de la navbar responsive
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+        
+        // Effet de la navbar au scroll
+        window.addEventListener('scroll', () => {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+          });
+        });
+        
+        // Animation de scroll
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+          document.querySelector('.section-carte').scrollIntoView({ 
+            behavior: 'smooth' 
+          });
+        });
+      </script>
+      <!--fin du script de la navbar-->
+
+    <!-- Section 1: Information et chiffres clés -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-content">
+                <div class="info-text">
+                    <h1>À propos de nous</h1>
+                    <p>Face aux enjeux sociaux, économiques et climatiques,
+                        le Foyer Anderlechtois développe, rénove et entretient
+                        un patrimoine immobilier, locatif public avec un accompagnement social de qualité, pour améliorer le cadre de vie de tous.</p>
+                    <p>Fondée en 1907, notre organisation a connu une croissance constante tout en restant fidèle à sa vision originale. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptates excepturi in nobis! Provident dolor, quo aperiam, mollitia exercitationem eius nam est amet, cupiditate consequatur inventore ut minima?</p>
+                </div>
+                <div class="key-figures">
+                    <div class="figure-card">
+                        <div class="number">4500</div>
+                        <div class="label">logements</div>
+                    </div>
+                    <div class="figure-card">
+                        <div class="number">12000</div>
+                        <div class="label">habitants</div>
+                    </div>
+                    <div class="figure-card">
+                        <div class="number">150+</div>
+                        <div class="label">Employés</div>
+                    </div>
+                    <div class="figure-card">
+                        <div class="number">25</div>
+                        <div class="label">concierges</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 2: Mot du président -->
+    <section class="president-section">
+        <div class="container">
+            <div class="president-content">
+                <div class="president-image">
+                    <img src="/api/placeholder/400/320" alt="Notre Président">
+                </div>
+                <div class="president-message">
+                    <h2>Mot du Président</h2>
+                    <p>"Bien que centenaire, le Foyer Anderlechtois continue de jouer un rôle essentiel dans la vie de nos concitoyens et concitoyennes : offrir un logement de qualité à des prix décents aux plus fragilisé(e)s de notre société. Un combat essentiel que le Foyer Anderlechtois continue de mener au quotidien !"</p>
+                    <p>"Pouvoir se loger à Bruxelles est un défi prioritaire que la région a décidé de prendre en main sous la législature 2019-2024.Notre priorité est la réalisation de nos projets immobiliers ambitieux et plus respectueux de l’environnement.  Notre priorité est de garantir un logement décent à prix modérés à un maximum de concitoyens et concitoyennes."</p>
+                    <div class="signature">LOTFI MOSTEFA</div>
+                    <div class="position">Président</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 3: Nos engagements -->
+    <section class="commitments-section">
+        <div class="container">
+            <h2>Nos engagements</h2>
+            <div class="commitments-grid">
+                <div class="commitment-card">
+                    <div class="commitment-icon">
+                        <i>🌱</i>
+                    </div>
+                    <h3>Développement durable</h3>
+                    <p>Nous nous engageons à réduire notre empreinte environnementale et à promouvoir des pratiques durables dans toutes nos activités.</p>
+                </div>
+                <div class="commitment-card">
+                    <div class="commitment-icon">
+                        <i>🤝</i>
+                    </div>
+                    <h3>Responsabilité sociale</h3>
+                    <p>Nous investissons dans les communautés locales et soutenons des initiatives qui favorisent l'éducation et le bien-être social.</p>
+                </div>
+                <div class="commitment-card">
+                    <div class="commitment-icon">
+                        <i>🔍</i>
+                    </div>
+                    <h3>Transparence</h3>
+                    <p>Nous croyons en l'honnêteté et la transparence dans toutes nos opérations et communications avec nos parties prenantes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 4: Rapport annuel -->
+    <section class="report-section">
+        <div class="container">
+            <h2>Notre rapport annuel</h2>
+            <p>Découvrez nos réalisations, notre impact et nos projets pour l'avenir dans notre dernier rapport annuel. Un document complet qui illustre nos engagements.</p>
+            <a href="#" class="download-btn">
+                <span>Télécharger le rapport</span>
+                <i>📥</i>
+            </a>
+        </div>
+    </section>
+        
+        <script>
+            // Script pour l'accordéon
+            document.querySelectorAll('.accordion-header').forEach(button => {
+                button.addEventListener('click', () => {
+                    const accordionContent = button.nextElementSibling;
+                    
+                    button.classList.toggle('active');
+                    
+                    if (button.classList.contains('active')) {
+                        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                    } else {
+                        accordionContent.style.maxHeight = 0;
+                    }
+                    
+                    // Fermer les autres sections
+                    document.querySelectorAll('.accordion-header').forEach(otherButton => {
+                        if (otherButton !== button) {
+                            otherButton.classList.remove('active');
+                            otherButton.nextElementSibling.style.maxHeight = 0;
+                        }
+                    });
+                });
+            });
+        </script>
+
+            <!--Footer-->
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>À propos de nous</h3>
+                        <p>Nous sommes une société immobilière de services publique</p>
+                        <p>Notre mission est de vous offrir les meilleurs services possibles et un logement pour tous</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Liens rapides</h3>
+                        <ul>
+                            <li><a href="home.html">Accueil</a></li>
+                            <li><a href="je_suis_candidats.html">Je suis candidats</a></li>
+                            <li><a href="habitant.html">Je suis habitants</a></li>
+                            <li><a href="a_propos.html">À propos</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="nos_partenaires.html">Nos quartiers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p><i class="fa fa-phone"></i> +32 23 45 67 89</p>
+                        <p><i class="fa fa-envelope"></i> contact@monsite.com</p>
+                        <p><i class="fa fa-map-marker"></i> Rue de Birmingham 221, 1070 Anderlecht</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Site Web FoyerAnderlechtois. Tous droits réservés.</p>
+                </div>
+            </footer>
+</body>
+</html>
