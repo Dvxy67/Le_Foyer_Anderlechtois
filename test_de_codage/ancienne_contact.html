@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de Contact - Foyer Anderlechtois</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="contacte_v2.css">
+    <link rel="stylesheet" href="ancienne_contact.css">
 </head>
 <body>
 
@@ -32,108 +32,130 @@
           </ul>
         </div>
       </nav>
+    
+      <!-- Scripts de la navbar -->
+      <script>
+        // Gestion de la navbar responsive
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+        
+        // Effet de la navbar au scroll
+        window.addEventListener('scroll', () => {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+          });
+        });
+        
+        // Animation de scroll
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+          document.querySelector('.section-carte').scrollIntoView({ 
+            behavior: 'smooth' 
+          });
+        });
+      </script>
+      <!--fin du script de la navbar-->
 
     <div class="hero-banner">
         <div class="hero-content">
           <h1>Contactez-nous</h1>
           <p>Notre équipe est à votre écoute pour répondre à toutes vos questions</p>
         </div>
-    </div>
+      </div>
     
     <div class="container">
         <div class="contact-page">
-            <!-- Section 1: Cards d'informations de contact -->
+            <!-- Section 1: Accordion d'informations de contact -->
             <section class="contact-info-section">
                 <h2 class="section-title">Nos informations de contact</h2>
-                <div class="cards-container">
-                    <div class="contact-card">
-                        <div class="card-header">
-                            <div class="card-icon">
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="header-content">
                                 <i class="fas fa-headset"></i>
+                                <span>Assistants de service</span>
                             </div>
-                            <h3 class="card-title">Assistants de service</h3>
+                            <i class="fas fa-chevron-down arrow-icon"></i>
                         </div>
-                        <div class="card-content">
-                            <div class="contact-info-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <a href="tel:+33123456789">01 23 45 67 89</a>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="far fa-envelope"></i>
-                                <a href="mailto:assistants@exemple.com">assistants@exemple.com</a>
-                            </div>
-                            <div class="availability-badge">
-                                <i class="far fa-clock"></i>
-                                Lun-Ven, 9h-17h
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="contact-info">
+                                    <p><i class="far fa-clock"></i> Disponibles du lundi au vendredi, de 9h à 17h</p>
+                                    <p><i class="fas fa-phone-alt"></i> Téléphone: <a href="tel:+33123456789">01 23 45 67 89</a></p>
+                                    <p><i class="far fa-envelope"></i> Email: <a href="mailto:assistants@exemple.com">assistants@exemple.com</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="header-content">
                                 <i class="fas fa-user-shield"></i>
+                                <span>Concierges</span>
                             </div>
-                            <h3 class="card-title">Concierges</h3>
+                            <i class="fas fa-chevron-down arrow-icon"></i>
                         </div>
-                        <div class="card-content">
-                            <div class="contact-info-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <a href="tel:+33123456790">01 23 45 67 90</a>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="far fa-envelope"></i>
-                                <a href="mailto:concierges@exemple.com">concierges@exemple.com</a>
-                            </div>
-                            <div class="availability-badge full-time">
-                                <i class="far fa-clock"></i>
-                                Disponible 24h/24
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="contact-info">
+                                    <p><i class="far fa-clock"></i> Service disponible 24h/24, 7j/7</p>
+                                    <p><i class="fas fa-phone-alt"></i> Téléphone: <a href="tel:+33123456790">01 23 45 67 90</a></p>
+                                    <p><i class="far fa-envelope"></i> Email: <a href="mailto:concierges@exemple.com">concierges@exemple.com</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="header-content">
                                 <i class="fas fa-folder-open"></i>
+                                <span>Gestionnaires de dossier</span>
                             </div>
-                            <h3 class="card-title">Gestionnaires de dossier</h3>
+                            <i class="fas fa-chevron-down arrow-icon"></i>
                         </div>
-                        <div class="card-content">
-                            <div class="contact-info-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <a href="tel:+33123456791">01 23 45 67 91</a>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="far fa-envelope"></i>
-                                <a href="mailto:gestionnaires@exemple.com">gestionnaires@exemple.com</a>
-                            </div>
-                            <div class="availability-badge">
-                                <i class="far fa-clock"></i>
-                                Lun-Ven, 9h-18h
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="contact-info">
+                                    <p><i class="far fa-clock"></i> Disponibles du lundi au vendredi, de 9h à 18h</p>
+                                    <p><i class="fas fa-phone-alt"></i> Téléphone: <a href="tel:+33123456791">01 23 45 67 91</a></p>
+                                    <p><i class="far fa-envelope"></i> Email: <a href="mailto:gestionnaires@exemple.com">gestionnaires@exemple.com</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="header-content">
                                 <i class="fas fa-tools"></i>
+                                <span>Support technique</span>
                             </div>
-                            <h3 class="card-title">Support technique</h3>
+                            <i class="fas fa-chevron-down arrow-icon"></i>
                         </div>
-                        <div class="card-content">
-                            <div class="contact-info-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <a href="tel:+33123456792">01 23 45 67 92</a>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="far fa-envelope"></i>
-                                <a href="mailto:support@exemple.com">support@exemple.com</a>
-                            </div>
-                            <div class="availability-badge">
-                                <i class="far fa-clock"></i>
-                                Lun-Sam, 8h-20h
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="contact-info">
+                                    <p><i class="far fa-clock"></i> Support disponible du lundi au samedi, de 8h à 20h</p>
+                                    <p><i class="fas fa-phone-alt"></i> Téléphone: <a href="tel:+33123456792">01 23 45 67 92</a></p>
+                                    <p><i class="far fa-envelope"></i> Email: <a href="mailto:support@exemple.com">support@exemple.com</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -147,6 +169,23 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nom">Nom</label>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="nom" name="nom" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="prenom" name="prenom" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone">Numéro de téléphone</label>
                             <div class="input-group">
                                 <i class="fas fa-phone-alt"></i>
                                 <input type="tel" id="telephone" name="telephone" required>
@@ -261,31 +300,40 @@
     </footer>
 
     <script>
-        // Gestion de la navbar responsive
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-          menuToggle.classList.toggle('active');
-        });
-        
-        // Effet de la navbar au scroll
-        window.addEventListener('scroll', () => {
-          const navbar = document.querySelector('.navbar');
-          if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
-        });
-        
         // Fermer le menu en cliquant sur un lien
         document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
-          });
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        // Script pour l'accordéon
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionItem = button.parentElement;
+                const accordionContent = button.nextElementSibling;
+                const arrowIcon = button.querySelector('.arrow-icon');
+                
+                accordionItem.classList.toggle('active');
+                
+                if (accordionItem.classList.contains('active')) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                    arrowIcon.style.transform = 'rotate(180deg)';
+                } else {
+                    accordionContent.style.maxHeight = 0;
+                    arrowIcon.style.transform = 'rotate(0deg)';
+                }
+                
+                // Fermer les autres sections
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item !== accordionItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.accordion-content').style.maxHeight = 0;
+                        item.querySelector('.arrow-icon').style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
         });
         
         // Animation des champs du formulaire
@@ -306,31 +354,6 @@
             if (input.value) {
                 input.parentElement.classList.add('input-focus');
             }
-        });
-
-        // Animation staggered pour les cartes
-        const cards = document.querySelectorAll('.contact-card');
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            cardObserver.observe(card);
         });
     </script>
 </body>
