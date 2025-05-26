@@ -8,6 +8,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="home_styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="dark_mode.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -180,7 +181,7 @@
         console.log(`Filtre appliqué: ${filterName}`);
       });
     });
-
+    
     const langSwitch = document.getElementById('lang-switch');
 
     const translations = {
@@ -237,7 +238,6 @@
       currentLang = currentLang === 'fr' ? 'en' : 'fr';
       applyTranslations(currentLang);
     });
-
 
     window.initMap = function () {
       const anderlecht = { lat: 50.8366, lng: 4.3139 };
