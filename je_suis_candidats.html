@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Je suis candidat – Foyer Anderlechtois</title>
   <link rel="stylesheet" href="je_suis_candidats.css">
+  <link rel="stylesheet" href="dark_mode.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg+xml">
@@ -22,12 +23,14 @@
         <i class="fas fa-times close-menu"></i>
       </div>
       <ul class="nav-links">
-        <li><a href="home.html">Accueil</a></li>
-        <li><a href="je_suis_candidats.html" class="active">Je suis candidat</a></li>
-        <li><a href="habitant.html">Je suis habitant</a></li>
-        <li><a href="a_propos.html">À propos</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+        <li><a href="home.html" data-i18n="nav_home">Accueil</a></li>
+        <li><a href="je_suis_candidats.html" class="active" data-i18n="nav_candidate">Je suis candidat</a></li>
+        <li><a href="habitant.html" data-i18n="nav_inhabitant">Je suis habitant</a></li>
+        <li><a href="a_propos.html" data-i18n="nav_about">À propos</a></li>
+        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+        <li><a href="nos_quartiers.html" data-i18n="nav_districts">Nos quartiers</a></li>
+        <li class="nav-button"><button id="lang-switch">EN</button></li>
+        <li class="nav-button"><button id="theme-switch"><i class="fas fa-moon"></i></button></li>
       </ul>
     </div>
   </nav>
@@ -247,5 +250,6 @@
       <p>&copy; 2025 Site Web Foyer Anderlechtois. Tous droits réservés.</p>
     </div>
   </footer>
+  <script src="main.js"></script>
 </body>
 </html>
