@@ -1,43 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="test_navbar.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="test_navbar.css">
+  <title>Document</title>
 </head>
 <body>
-        <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">
-        <img src="asset/FA-logo full colors_RED.svg" alt="Logo Foyer Anderlechtois">
-        <div class="logo-text">Foyer <span>Anderlechtois</span></div>
-      </a>
-      
-      <div class="menu-toggle">
-        <i class="fas fa-bars open-menu"></i>
-        <i class="fas fa-times close-menu"></i>
-      </div>
-      
-      <ul class="nav-links">
-        <li><a href="home.html" class="active">Accueil</a></li>
-        <li><a href="#">Je suis candidats</a></li>
-        <li><a href="habitant.html">Je suis habitants</a></li>
-        <li><a href="a_propos.html">À propos</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="nos_quartiers.html">Nos quartiers</a></li>
-      </ul>
+  <!-- HTML: Remplacer votre section navbar existante par celle-ci -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <img src="asset/FA-logo full colors_RED_no text.svg" alt="Logo Foyer Anderlechtois">
+      <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+    </a>
+    
+    <div class="menu-toggle">
+      <i class="fas fa-bars open-menu"></i>
+      <i class="fas fa-times close-menu"></i>
     </div>
-  </nav>
-</body>
-<script>
-    // Script pour la navbar responsive
-document.addEventListener('DOMContentLoaded', function() {
-  // Gestion du scroll
-  const navbar = document.querySelector('.navbar');
+    
+    <ul class="nav-links">
+      <li><a href="home.html">Accueil</a></li>
+      <li><a href="je_suis_candidats.html">Je suis candidat</a></li>
+      <li><a href="habitant.html">Je suis habitant</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Institution <i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="nos_partenaires.html">Nos partenaires</a></li>
+          <li><a href="gouvernances.html">Gouvernances</a></li>
+          <li><a href="information.html">Information</a></li>
+        </ul>
+      </li>
+      <li><a href="a_propos.html" class="active">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CSS: Ajouter à votre fichier a_propos_styles.css -->
+<style>
+/* Styles pour le menu déroulant */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-toggle i {
+  margin-left: 5px;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-color);
+  min-width: 200px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu a {
+  padding: 10px 20px;
+  display: block;
+  color: var(--light-text);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--secondary-color);
+}
+
+/* Styles responsifs pour le menu déroulant */
+@media (max-width: 992px) {
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0.3s ease;
+  }
   
-  window.addEventListener('scroll', function() {
+  .dropdown:hover .dropdown-menu {
+    max-height: 500px;
+  }
+  
+  .dropdown-toggle {
+    justify-content: center;
+  }
+}
+</style>
+
+<!-- JavaScript: Ajouter à votre script existant -->
+<script>
+// JavaScript complet pour la navbar avec menu déroulant
+document.addEventListener('DOMContentLoaded', function() {
+  // Gestion de la navbar responsive
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+  }
+  
+  // Effet de la navbar au scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
@@ -45,34 +152,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Menu mobile
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  
-  menuToggle.addEventListener('click', function() {
-    navLinks.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-    document.body.classList.toggle('no-scroll');
-  });
-  
-  // Fermer le menu en cliquant sur un lien
-  const navItems = document.querySelectorAll('.nav-links a');
-  navItems.forEach(item => {
-    item.addEventListener('click', function() {
-      navLinks.classList.remove('active');
-      menuToggle.classList.remove('active');
-      document.body.classList.remove('no-scroll');
+  // Gestion du menu déroulant sur mobile
+  document.querySelectorAll('.dropdown-toggle').forEach(dropdownToggle => {
+    dropdownToggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 992) {
+        e.preventDefault();
+        this.parentNode.classList.toggle('dropdown-active');
+        const dropdownMenu = this.nextElementSibling;
+        
+        // Fermer tous les autres menus déroulants
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+          if (dropdown !== this.parentNode && dropdown.classList.contains('dropdown-active')) {
+            dropdown.classList.remove('dropdown-active');
+            dropdown.querySelector('.dropdown-menu').style.maxHeight = '0';
+          }
+        });
+        
+        // Ouvrir/fermer le menu actuel
+        if (this.parentNode.classList.contains('dropdown-active')) {
+          dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+        } else {
+          dropdownMenu.style.maxHeight = '0';
+        }
+      }
     });
   });
   
-  // Ajout de la classe active au lien actuel
-  const currentLocation = window.location.pathname;
-  navItems.forEach(item => {
-    const href = item.getAttribute('href');
-    if (currentLocation.includes(href) && href !== '#') {
-      item.classList.add('active');
-    }
+  // Fermer le menu en cliquant sur un lien (sauf dropdown-toggle)
+  document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('active');
+    });
   });
+  
+  // Animation de scroll (si présent dans votre code)
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', function() {
+      const sectionCarte = document.querySelector('.section-carte');
+      if (sectionCarte) {
+        sectionCarte.scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      }
+    });
+  }
 });
 </script>
+</body>
 </html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Contact - Foyer Anderlechtois</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contacte_v2.css">
+</head>
+<body>
+
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <a href="#" class="logo">
+            <img src="asset/FA-logo full colors_RED.svg" alt="Logo Foyer Anderlechtois">
+            <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+          </a>
+          
+          <div class="menu-toggle">
+            <i class="fas fa-bars open-menu"></i>
+            <i class="fas fa-times close-menu"></i>
+          </div>
+          
+          <ul class="nav-links">
+            <li><a href="home.html">Accueil</a></li>
+            <li><a href="je_suis_candidats.html">Je suis candidat</a></li>
+            <li><a href="habitant.html">Je suis habitant</a></li>
+            <li><a href="a_propos.html">À propos</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="hero-banner">
+        <div class="hero-content">
+          <h1>Contactez-nous</h1>
+          <p>Notre équipe est à votre écoute pour répondre à toutes vos questions</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="contact-page">
+            <!-- Section 1: Cards d'informations de contact -->
+            <section class="contact-info-section">
+                <h2 class="section-title">Nos informations de contact</h2>
+                <div class="cards-container">
+                    <div class="contact-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3 class="card-title">Assistants de service</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+33123456789">01 23 45 67 89</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="far fa-envelope"></i>
+                                <a href="mailto:assistants@exemple.com">assistants@exemple.com</a>
+                            </div>
+                            <div class="availability-badge">
+                                <i class="far fa-clock"></i>
+                                Lun-Ven, 9h-17h
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3 class="card-title">Concierges</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+33123456790">01 23 45 67 90</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="far fa-envelope"></i>
+                                <a href="mailto:concierges@exemple.com">concierges@exemple.com</a>
+                            </div>
+                            <div class="availability-badge full-time">
+                                <i class="far fa-clock"></i>
+                                Disponible 24h/24
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-folder-open"></i>
+                            </div>
+                            <h3 class="card-title">Gestionnaires de dossier</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+33123456791">01 23 45 67 91</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="far fa-envelope"></i>
+                                <a href="mailto:gestionnaires@exemple.com">gestionnaires@exemple.com</a>
+                            </div>
+                            <div class="availability-badge">
+                                <i class="far fa-clock"></i>
+                                Lun-Ven, 9h-18h
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="card-title">Support technique</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+33123456792">01 23 45 67 92</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="far fa-envelope"></i>
+                                <a href="mailto:support@exemple.com">support@exemple.com</a>
+                            </div>
+                            <div class="availability-badge">
+                                <i class="far fa-clock"></i>
+                                Lun-Sam, 8h-20h
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 2: Formulaire de contact -->
+            <section class="contact-form-section">
+                <h2 class="section-title">Nous contacter</h2>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <div class="input-group">
+                                <i class="fas fa-phone-alt"></i>
+                                <input type="tel" id="telephone" name="telephone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail</label>
+                            <div class="input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="demande">Votre demande concerne</label>
+                        <div class="input-group">
+                            <i class="fas fa-question-circle"></i>
+                            <select id="demande" name="demande" required>
+                                <option value="" disabled selected>Sélectionnez une option</option>
+                                <option value="information">Demande d'information</option>
+                                <option value="rdv">Prise de rendez-vous</option>
+                                <option value="reclamation">Réclamation</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Votre message</label>
+                        <div class="input-group">
+                            <i class="fas fa-comment-alt textarea-icon"></i>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn-submit">
+                            <span>Envoyer</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Section carte de localisation -->
+    <section class="location-section">
+        <div class="container">
+            <h2 class="section-title">Nous trouver</h2>
+            <div class="location-container">
+                <div class="address-info">
+                    <h3>Notre adresse</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rue de Birmingham 221, 1070 Anderlecht</p>
+                    <p><i class="fas fa-subway"></i> Métro: Station Delacroix (ligne 2, 6)</p>
+                    <p><i class="fas fa-subway"></i> Métro: Station Jacques Brel (ligne 1, 5)</p>
+                    <p><i class="fas fa-bus"></i> Bus: Lignes 89, 46 (arrêt Birmingham)</p>
+                    <a href="#" class="btn-directions">
+                        <span>Itinéraire</span>
+                        <i class="fas fa-directions"></i>
+                    </a>
+                </div>
+                <div class="map-container">
+                    <!-- Placeholder pour Google Maps ou autre carte -->
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Carte interactive</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--Footer-->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos de nous</h3>
+                <p>Nous sommes une société immobilière de services publique</p>
+                <p>Notre mission est de vous offrir les meilleurs services possibles et un logement pour tous</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fa fa-phone"></i> +32 23 45 67 89</p>
+                <p><i class="fa fa-envelope"></i> contact@monsite.com</p>
+                <p><i class="fa fa-map-marker"></i> Rue de Birmingham 221, 1070 Anderlecht</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Site Web FoyerAnderlechtois. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion de la navbar responsive
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+        
+        // Effet de la navbar au scroll
+        window.addEventListener('scroll', () => {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+          });
+        });
+        
+        // Animation des champs du formulaire
+        const formInputs = document.querySelectorAll('input, textarea, select');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('input-focus');
+            });
+            
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.parentElement.classList.remove('input-focus');
+                }
+            });
+            
+            // Initialiser les champs qui ont déjà une valeur
+            if (input.value) {
+                input.parentElement.classList.add('input-focus');
+            }
+        });
+
+        // Animation staggered pour les cartes
+        const cards = document.querySelectorAll('.contact-card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+    </script>
+</body>
+</html>

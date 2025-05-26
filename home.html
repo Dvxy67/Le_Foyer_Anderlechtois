@@ -4,26 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foyer Anderlechtois</title>
-  <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg">
+  <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg+xml">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="home_styles.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">
-        <img src="asset/FA-logo full colors_RED.svg" alt="Logo Foyer Anderlechtois">
+      <a href="home.html" class="logo">
+        <img src="asset/FA-logo full colors_RED.svg" alt="Logo du Foyer Anderlechtois">
         <div class="logo-text">Foyer <span>Anderlechtois</span></div>
       </a>
-      
       <div class="menu-toggle">
         <i class="fas fa-bars open-menu"></i>
         <i class="fas fa-times close-menu"></i>
       </div>
-      
       <ul class="nav-links">
         <li><a href="home.html" class="active">Accueil</a></li>
         <li><a href="je_suis_candidats.html">Je suis candidat</a></li>
@@ -34,424 +31,167 @@
       </ul>
     </div>
   </nav>
-  
-  <!-- Première section : Accueil (Améliorée) -->
+
+  <!-- Section Accueil -->
   <section class="section-accueil" id="accueil">
     <div class="accueil-content">
       <div class="welcome-text">
         <h1>Bienvenue au <span class="accent-text">Foyer Anderlechtois</span></h1>
         <p>Au nom du Conseil d’Administration et du personnel du Foyer Anderlechtois, nous vous souhaitons la bienvenue. Ce site internet vous présente un aperçu de la société et vous guide dans vos premières démarches administratives.</p>
       </div>
-      
       <div class="buttons-container">
-        <button class="btn btn-primary">
-          <span class="btn-icon">
-            <i class="fas fa-home"></i>
-          </span>
+        <button class="btn btn-primary" aria-label="Accès pour candidat à un logement">
+          <span class="btn-icon"><i class="fas fa-home"></i></span>
           Je suis candidat
           <span class="btn-text">Je souhaite m'inscrire</span>
         </button>
-        
-        <button class="btn btn-secondary">
-          <span class="btn-icon">
-            <i class="fas fa-users"></i>
-          </span>
+        <button class="btn btn-secondary" aria-label="Accès aux ressources pour habitant">
+          <span class="btn-icon"><i class="fas fa-users"></i></span>
           Je suis habitant
           <span class="btn-text">Accédez aux ressources</span>
         </button>
       </div>
     </div>
-    
     <div class="scroll-indicator">
       <i class="fas fa-chevron-down scroll-arrow"></i>
     </div>
   </section>
-  
-  <!-- Deuxième section : Carte interactive -->
+
+  <!-- Section Carte interactive -->
   <section class="section-carte" id="patrimoine">
     <div class="container">
       <h2>Où Nous Trouver</h2>
-      
       <div class="carte-container">
         <div id="map"></div>
         <div class="legende">
           <h4>Légende</h4>
           <div class="legende-item">
-            <div class="legende-couleur" style="background-color: #4285F4;"></div>
+            <div class="legende-couleur blue"></div>
             <span>Immeubles et maisons résidentiels</span>
           </div>
           <div class="legende-item">
-            <div class="legende-couleur" style="background-color: #0F9D58;"></div>
+            <div class="legende-couleur green"></div>
             <span>Permanence</span>
           </div>
           <div class="legende-item">
-            <div class="legende-couleur" style="background-color: #F4B400;"></div>
+            <div class="legende-couleur yellow"></div>
             <span>Bâtiments administratifs</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!--Ici les filtres pour la map (c'est un test on reglemera le designe et tou plius tard)-->
-    <div class="button-group">
+      <div class="button-group">
         <button class="filter-button active" data-filter="tous">Tous</button>
         <button class="filter-button" data-filter="administratif">Administratif</button>
         <button class="filter-button" data-filter="immeuble">Immeuble</button>
         <button class="filter-button" data-filter="permanences">Permanences</button>
+      </div>
     </div>
-      <!--Script pour les filtres-->
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.filter-button');
-            const filterNameElement = document.querySelector('.filter-name');
-            
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Supprimer la classe active de tous les boutons
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Ajouter la classe active au bouton cliqué
-                    this.classList.add('active');
-                    
-                    // Mettre à jour l'affichage du filtre actif
-                    const filterName = this.getAttribute('data-filter');
-                    filterNameElement.textContent = filterName;
-                    
-                    // Ici, vous pourriez ajouter du code pour filtrer vos éléments
-                    console.log(`Filtre appliqué: ${filterName}`);
-                });
-            });
-        });
-    </script>
-      <!--Fin du cript pour les filtres-->
+  </section>
 
-  <!--Fin des filtres pour la map-->
-
-
-  <!--Ici test pour les cartes qui s'affiche en dessous de la map
-  elles formes 2 ranger de 3 cartes-->
-    <!-- Conteneur pour la carte existante -->
-    <div class="map-container" id="map">
-      <!-- Votre carte sera ici -->
-  </div>
-  
-  <!-- Conteneur pour les cartes avec images -->
+  <!-- Cartes illustratives -->
   <div class="image-cards-container">
-      <!-- Première carte -->
-      <div class="image-card">
-          <div class="card-image">
-              <img src="asset/DSC01588.JPG" alt="Permanance">
-          </div>
-          <div class="card-label">Permanence</div>
+    <div class="image-card">
+      <div class="card-image">
+        <img src="asset/DSC01588.JPG" alt="Photo d'une permanence sociale">
       </div>
-      
-      <!-- Deuxième carte -->
-      <div class="image-card">
-          <div class="card-image">
-              <img src="asset/DSC01576.JPG" alt="Permanance">
-          </div>
-          <div class="card-label">Permanences</div>
+      <div class="card-label">Permanence</div>
+    </div>
+    <div class="image-card">
+      <div class="card-image">
+        <img src="asset/DSC01576.JPG" alt="Autre vue d'une permanence sociale">
       </div>
-      
-      <!-- Troisième carte -->
-      <div class="image-card">
-          <div class="card-image">
-              <img src="asset/DSC01573.JPG" alt="Administratif">
-          </div>
-          <div class="card-label">Bâtiments administratifs</div>
+      <div class="card-label">Permanences</div>
+    </div>
+    <div class="image-card">
+      <div class="card-image">
+        <img src="asset/DSC01573.JPG" alt="Bâtiment administratif du foyer">
       </div>
+      <div class="card-label">Bâtiments administratifs</div>
+    </div>
   </div>
 
-  <script>
-      // Fonction pour initialiser la carte (à adapter selon votre solution existante)
-      function initMap() {
-          // Code d'initialisation de votre carte
-          // Ceci est un exemple fictif - à remplacer par votre code existant
-          console.log("Carte initialisée");
-      }
-      
-      // Initialiser la carte quand le DOM est chargé
-      document.addEventListener('DOMContentLoaded', function() {
-          initMap();
-          
-          // Optionnel: ajoutez du code pour gérer les clics sur les cartes
-          const imageCards = document.querySelectorAll('.image-card');
-          imageCards.forEach(card => {
-              card.addEventListener('click', function() {
-                  const cardLabel = this.querySelector('.card-label').textContent;
-                  console.log('Carte cliquée:', cardLabel);
-                  
-                  // Exemple de filtrage de la carte en fonction de la catégorie
-                  // applyMapFilter(cardLabel);
-              });
-          });
-      });
-      
-      // Fonction exemple pour filtrer la carte (à adapter à votre système de carte)
-      function applyMapFilter(category) {
-          // Implémentez ici la logique pour filtrer les marqueurs sur votre carte
-          console.log("Filtre appliqué:", category);
-      }
-    </script>
-  <!--Fin du teste  des 2 ranger de 3 cartes qui s'affiche en dessous de 
-  la map-->
-
-
-
-  <script>
-      // Fonction pour initialiser la carte (à adapter selon votre solution existante)
-      function initMap() {
-          // Code d'initialisation de votre carte
-          // Ceci est un exemple fictif - à remplacer par votre code existant
-          console.log("Carte initialisée");
-      }
-      
-      // Initialiser la carte quand le DOM est chargé
-      document.addEventListener('DOMContentLoaded', function() {
-          initMap();
-          
-          // Optionnel: ajoutez du code pour gérer les clics sur les cartes
-          const imageCards = document.querySelectorAll('.image-card');
-          imageCards.forEach(card => {
-              card.addEventListener('click', function(e) {
-                  // Empêcher le déclenchement du clic si l'utilisateur a cliqué sur le bouton
-                  if (e.target.classList.contains('card-button')) {
-                      return;
-                  }
-                  
-                  // Actions à effectuer lorsqu'on clique sur la carte
-                  // Par exemple, ouvrir une page détaillée
-                  const cardTitle = this.querySelector('h3').textContent;
-                  console.log('Carte cliquée:', cardTitle);
-                  
-                  // Décommentez la ligne suivante si vous voulez rediriger vers une page spécifique
-                  // window.location.href = 'page-detail.html?id=' + this.getAttribute('data-id');
-              });
-          });
-      });
-  </script>
-  
-  <!--Footer-->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
-        <div class="footer-section">
-            <h3>À propos de nous</h3>
-            <p>Nous sommes une société immobilière de service publique.</p>
-            <p>Notre mission est de vous offrir les meilleurs services possibles et un logement pour tous.</p>
+      <div class="footer-section">
+        <h3>À propos de nous</h3>
+        <p>Nous sommes une société immobilière de service publique.</p>
+        <p>Notre mission est de vous offrir les meilleurs services possibles et un logement pour tous.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Liens rapides</h3>
+        <ul>
+          <li><a href="home.html">Accueil</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="a_propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fa fa-phone"></i> +32 23 45 67 89</p>
+        <p><i class="fa fa-envelope"></i> contact@monsite.com</p>
+        <p><i class="fa fa-map-marker"></i> Rue de Birmingham 221, 1070 Anderlecht</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        
-        <div class="footer-section">
-            <h3>Liens rapides</h3>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Contact</h3>
-            <p><i class="fa fa-phone"></i> +32 23 45 67 89</p>
-            <p><i class="fa fa-envelope"></i> contact@monsite.com</p>
-            <p><i class="fa fa-map-marker"></i> Rue de Birmingham 221, 1070 Anderlecth</p>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
+      </div>
     </div>
-    
     <div class="footer-bottom">
-        <p>&copy; 2025 Site Web FoyerAnderlechtois. Tous droits réservés.</p>
+      <p>&copy; 2025 Site Web Foyer Anderlechtois. Tous droits réservés.</p>
     </div>
-    </footer>
+  </footer>
 
   <!-- Scripts -->
   <script>
-    // Gestion de la navbar responsive
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('active');
     });
-    
-    // Effet de la navbar au scroll
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-    
-    // Fermer le menu en cliquant sur un lien
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
       });
     });
-    
-    // Animation de scroll
-    document.querySelector('.scroll-indicator').addEventListener('click', function() {
-      document.querySelector('.section-carte').scrollIntoView({ 
-        behavior: 'smooth' 
+
+    document.querySelector('.scroll-indicator').addEventListener('click', function () {
+      document.querySelector('.section-carte').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('.filter-button').forEach(button => {
+      button.addEventListener('click', function () {
+        document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        const filterName = this.getAttribute('data-filter');
+        console.log(`Filtre appliqué: ${filterName}`);
       });
     });
-  </script>
-  
-  <!-- Inclusion de l'API Google Maps -->
-  <script>
-    // Fonction d'initialisation de la carte
-    function initMap() {
-      // Coordonnées centrales d'Anderlecht
+
+    window.initMap = function () {
       const anderlecht = { lat: 50.8366, lng: 4.3139 };
-      
-      // Style personnalisé pour la carte
-      const mapStyles = [
-        {
-          "featureType": "administrative",
-          "elementType": "labels.text.fill",
-          "stylers": [{"color": "#444444"}]
-        },
-        {
-          "featureType": "landscape",
-          "elementType": "all",
-          "stylers": [{"color": "#f2f2f2"}]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "all",
-          "stylers": [{"visibility": "off"}]
-        },
-        {
-          "featureType": "road",
-          "elementType": "all",
-          "stylers": [{"saturation": -100}, {"lightness": 45}]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "all",
-          "stylers": [{"visibility": "simplified"}]
-        },
-        {
-          "featureType": "road.arterial",
-          "elementType": "labels.icon",
-          "stylers": [{"visibility": "off"}]
-        },
-        {
-          "featureType": "transit",
-          "elementType": "all",
-          "stylers": [{"visibility": "off"}]
-        },
-        {
-          "featureType": "water",
-          "elementType": "all",
-          "stylers": [{"color": "#c4e5f9"}, {"visibility": "on"}]
-        }
-      ];
-      
-      // Création de la carte
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 14,
         center: anderlecht,
-        mapTypeControl: false,
-        streetViewControl: true,
-        fullscreenControl: true,
-        styles: mapStyles
+        styles: [
+          { featureType: "landscape", stylers: [{ color: "#f2f2f2" }] },
+          { featureType: "road", stylers: [{ saturation: -100 }, { lightness: 45 }] },
+          { featureType: "water", stylers: [{ color: "#c4e5f9" }] }
+        ]
       });
-      
-      // Exemple de données de patrimoine (à remplacer par vos données réelles)
-      const proprietes = [
-        {
-          position: { lat: 50.8366, lng: 4.3139 },
-          title: "Résidence Les Peupliers",
-          type: "residential",
-          description: "Ensemble de 120 logements sociaux rénovés en 2018. Bâtiments à haute performance énergétique."
-        },
-        {
-          position: { lat: 50.8300, lng: 4.3200 },
-          title: "Résidence Les Saules",
-          type: "residential",
-          description: "45 appartements construits en 2015. Espaces communs partagés et jardin communautaire."
-        },
-        {
-          position: { lat: 50.8400, lng: 4.3100 },
-          title: "Parc du Foyer",
-          type: "green",
-          description: "Espace vert de 2 hectares aménagé pour les résidents. Aires de jeux, parcours sportif et jardins partagés."
-        },
-        {
-          position: { lat: 50.8380, lng: 4.3180 },
-          title: "Bureau central",
-          type: "admin",
-          description: "Siège administratif du Foyer Anderlechtois. Accueil des locataires et permanences sociales."
-        }
-      ];
-      
-      // Définir les icônes et couleurs selon le type de propriété
-      const icons = {
-        residential: {
-          color: "#4285F4" // Bleu pour résidentiel
-        },
-        green: {
-          color: "#0F9D58" // Vert pour espaces verts
-        },
-        admin: {
-          color: "#F4B400" // Jaune pour administratif
-        }
-      };
-      
-      // Créer une fenêtre d'info pour les marqueurs
-      const infoWindow = new google.maps.InfoWindow();
-      
-      // Ajouter les marqueurs à la carte
-      proprietes.forEach((propriete) => {
-        const marker = new google.maps.Marker({
-          position: propriete.position,
-          map: map,
-          title: propriete.title,
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            fillColor: icons[propriete.type].color,
-            fillOpacity: 0.8,
-            strokeWeight: 1,
-            strokeColor: '#FFFFFF',
-            scale: 10
-          },
-          animation: google.maps.Animation.DROP
-        });
-        
-        // Ajouter un événement au clic sur le marqueur
-        marker.addListener("click", () => {
-          const content = `
-            <div class="info-bulle">
-              <h3>${propriete.title}</h3>
-              <p>${propriete.description}</p>
-            </div>
-          `;
-          
-          infoWindow.setContent(content);
-          infoWindow.open(map, marker);
-        });
+      new google.maps.Marker({
+        position: anderlecht,
+        map: map,
+        title: "Foyer Anderlechtois"
       });
-    }
+    };
   </script>
-  
-  <!-- Remplacez YOUR_API_KEY par votre clé API Google Maps -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-  </script>
-
-
-  
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 </body>
 </html>

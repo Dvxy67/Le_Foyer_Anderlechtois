@@ -1,403 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Je suis candidat – Foyer Anderlechtois</title>
   <link rel="stylesheet" href="je_suis_candidats.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg+xml">
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="home.html" class="logo">
+        <img src="asset/FA-logo full colors_RED.svg" alt="Logo du Foyer Anderlechtois">
+        <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+      </a>
+      <div class="menu-toggle">
+        <i class="fas fa-bars open-menu"></i>
+        <i class="fas fa-times close-menu"></i>
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Accueil</a></li>
+        <li><a href="je_suis_candidats.html" class="active">Je suis candidat</a></li>
+        <li><a href="habitant.html">Je suis habitant</a></li>
+        <li><a href="a_propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="nav-container">
-          <a href="#" class="logo">
-            <img src="asset/FA-logo full colors_RED.svg" alt="Logo Foyer Anderlechtois">
-            <div class="logo-text">Foyer <span>Anderlechtois</span></div>
-          </a>
-          
-          <div class="menu-toggle">
-            <i class="fas fa-bars open-menu"></i>
-            <i class="fas fa-times close-menu"></i>
+  <!-- SECTION 1: Conditions d'admission -->
+  <main class="first">
+    <section id="conditions" class="main-section">
+      <div class="section-header">
+        <h1 class="section-title">Conditions d'admission</h1>
+        <p class="section-subtitle">Pour vous inscrire à un logement social à Bruxelles, certaines conditions doivent être remplies.</p>
+      </div>
+      <div class="section-content">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/votre_id_video" title="Présentation des conditions d'admission" allowfullscreen></iframe>
           </div>
-          
-          <ul class="nav-links">
-            <li><a href="home.html">Accueil</a></li>
-            <li><a href="je_suis_candidats.html" class="active">Je suis candidat</a></li>
-            <li><a href="habitant.html">Je suis habitant</a></li>
-            <li><a href="a_propos.html">À propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="nos_quartiers.html">Nos quartiers</a></li>
-          </ul>
+          <div class="video-caption">Regardez cette vidéo pour comprendre les conditions à remplir.</div>
         </div>
-      </nav>
-    
-      <!-- Scripts de la navbar -->
-      <script>
-        // Gestion de la navbar responsive
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-          menuToggle.classList.toggle('active');
-        });
-        
-        // Effet de la navbar au scroll
-        window.addEventListener('scroll', () => {
-          const navbar = document.querySelector('.navbar');
-          if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
-        });
-        
-        // Fermer le menu en cliquant sur un lien
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
-          });
-        });
-        
-        // Animation de scroll
-        document.querySelector('.scroll-indicator').addEventListener('click', function() {
-          document.querySelector('.section-carte').scrollIntoView({ 
-            behavior: 'smooth' 
-          });
-        });
-      </script>
-      <!--fin du script de la navbar-->
 
-      <!-- SECTION 1: Conditions d'admission -->
-     <div class="first">  
-      <section id="conditions" class="main-section">
-        <div class="section-header">
-            <h1 class="section-title">Conditions d'admissions</h1>
-            <p class="section-subtitle">Si vous souhaitez vous inscrire pour un logement social en région de Bruxelles-Capitale, certaines conditions sont à respecter afin de pouvoir entrer dans la liste d'attente.</p>
+        <div class="flex-container">
+          <div class="flex-image">
+            <img src="asset/20943447.jpg" alt="Illustration d'un candidat éligible">
+          </div>
+          <div class="content-card">
+            <h2 class="card-title">Les différentes conditions</h2>
+            <ul class="item-list">
+              <li>Avoir plus de 18 ans</li>
+              <li>Ne pas être propriétaire</li>
+              <li>Être inscrit dans une commune belge</li>
+              <li>Respecter un plafond de revenus</li>
+            </ul>
+            <p class="card-description">Réfléchir à d'autres conditions ou éléments à ajouter si besoin.</p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-icon">
+            <i class="fas fa-info-circle" aria-hidden="true"></i>
+          </div>
+          <div class="highlight-content">
+            <h3>Information importante</h3>
+            <p>Consultez le site de la SLRB pour vérifier votre éligibilité à un logement social.</p>
+            <a href="#inscription" class="cta-button" aria-label="Vérifier les conditions d'admission">Vérifier maintenant</a>
+          </div>
         </div>
       </div>
-        
-        <div class="section-content">
-            <!-- Carte vidéo en pleine largeur -->
-            <div class="video-card">
-                <div class="video-container">
-                    <!-- Remplacez l'URL par le lien de votre vidéo YouTube -->
-                    <iframe src="https://www.youtube.com/embed/votre_id_video" 
-                            title="Présentation des conditions d'admission" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">
-                    Regardez la vidéo de présentation pour comprendre quelles sont les différentes conditions d'admissions.
-                </div>
-            </div>
-            
-            <!-- Conteneur des conditions -->
-            <div class="flex-container">
-                <!-- Image illustrative -->
-                <div class="flex-image">
-                    <img src="asset/20943447.jpg" alt="Candidat éligible" />
-                </div>
-                
-                <!-- Liste des conditions -->
-                <div class="content-card">
-                    <h2 class="card-title">Les différentes conditions</h2>
-                    
-                    <ul class="item-list">
-                        <li>Avoir plus de 18 ans</li>
-                        <li>Ne pas être propriétaire</li>
-                        <li>Être inscrit dans une commune belge</li>
-                        <li>Ne pas dépasser un certain plafond de revenus</li>
-                    </ul>
-                    
-                    <p class="card-description">
-                        note pour moi-même: quelque chose à rajouter ? Est-ce que toutes les informations sont présentes ?
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Boîte d'information importante -->
-            <div class="highlight-box">
-                <div class="highlight-icon">
-                    <i class="fas fa-info-circle"></i>
-                </div>
-                <div class="highlight-content">
-                    <h3>Information importante</h3>
-                    <p>Pour vérifier que vous remplissez toutes les conditions d'égibilité à un logement social, voici le lien vers la page des condidtions d'admission du site officiel de la SLRB.</p>
-                    <a href="#inscription" class="cta-button">Vérifier maintenant</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Séparateur de section -->
-    <div class="section-divider">
-        <div class="divider-icon">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </div>
-    
-    <!-- SECTION 2: Comment s'inscrire -->
-    <section id="inscription" class="main-section">
-        <div class="section-header">
-            <h1 class="section-title">Comment s'inscrire</h1>
-            <p class="section-subtitle">Le processus d'inscription se déroule en trois étapes pour déposer votre dossier.</p>
-        </div>
-        
-        <div class="section-content">
-            <!-- Étapes d'inscription -->
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3 class="step-title">Compléter le formulaire</h3>
-                    <p>Remplissez notre formulaire avec vos informations personnelles et votre situation actuelle. Le formulaire est disponible au près des SISP et de la SLRB.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <i class="fas fa-upload"></i>
-                    </div>
-                    <h3 class="step-title">Joindre et envoyer les documents</h3>
-                    <p>Fournissez les justificatifs demandés pour prouver que vous remplissez les conditions d'éligibilité. Déposez votre dossier complet à notre acceuil ou envoyez-le par la poste.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 class="step-title">Validation de votre demande</h3>
-                    <p>Une fois envoyée vous receverez un courrier avec votre justificatif d'inscription et votre numéro de dossier.</p>
-                </div>
-            </div>
-            
-            <!-- Détails supplémentaires du processus -->
-            <div class="flex-container" style="margin-top: 3rem;">
-                <div class="content-card">
-                    <h2 class="card-title">Documents nécessaires</h2>
-                    
-                    <ul class="item-list">
-                        <li>Carte d'identité ou titre de séjour valide</li>
-                        <li>Certificat de résidence récent (moins de 3 mois)</li>
-                        <li>Justificatifs de revenus des 3 derniers mois</li>
-                        <li>Attestation sur l'honneur de non-propriété</li>
-                    </ul>
-                    
-                    <p class="card-description">
-                    </p>
-                </div>
-                
-                <div class="flex-image">
-                    <img src="asset/2152177.jpg" alt="Documents d'inscription" />
-                </div>
-            </div>
-            
-            <!-- Boîte d'information importante -->
-            <div class="highlight-box">
-                <div class="highlight-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="highlight-content">
-                    <h3>Délais importants</h3>
-                    <p>Une fois votre dossier complet soumis, le délai de traitement est généralement de 90 jours. Vous recevrez un courrier qui confirmer votre inscription.</p>
-                    <a href="#" class="cta-button">Accéder au formulaire</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Séparateur de section -->
-    <div class="section-divider">
-        <div class="divider-icon">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </div>
-    
-    <!-- SECTION 3: Suivre ma candidature -->
-    <section id="suivi" class="main-section">
-        <div class="section-header">
-            <h1 class="section-title">Suivre ma candidature</h1>
-            <p class="section-subtitle">Consultez l'avancement de votre dossier et les différentes étapes du processus d'évaluation.</p>
-        </div>
-        
-        <div class="section-content">
-            <!-- Explication du processus de suivi -->
-            <div class="flex-container">
-                <div class="flex-image">
-                    <img src="asset/Man stopping minute hand of clock with finger.jpg" alt="Suivi de dossier" />
-                </div>
-                
-                <div class="content-card">
-                    <h2 class="card-title">Comment suivre votre dossier</h2>
-                    
-                    <ol class="numbered-list">
-                        <li>Si votre dossier est accepté, votre société de référence vous enverra un accusé de réception reprenant tous les éléments relatifs à votre candidature, dans un délai maximal de 90 jours. </li>
-                        <li>À partir du moment où vous êtes inscrit et jusqu’à l’attribution d’un logement, vous devez informer vous-même dans un délai de 2 mois votre société de référence de tout changement d’adresse et de tout ajout ou suppression de personnes faisant partie de votre candidature en communiquant leur nom, prénom et numéro de registre national.</li>
-                        <li>Consultez les notifications pour voir les actions requises ou les mises à jour.</li>
-                    </ol>
-                    
-                    <p class="card-description">
-                        Vous recevrez également des notifications uniquement par courrier à chaque changement d'état de votre candidature .
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Statuts possibles -->
-            <h2 class="card-title" style="margin-top: 3rem; text-align: center;">Les différents statuts de votre candidature</h2>
-            
-            <div class="status-container">
-                <div class="status-card">
-                    <div class="status-icon">
-                        <i class="fas fa-hourglass-start"></i>
-                    </div>
-                    <div class="status-content">
-                        <h3 class="status-title">Dossier reçu <span class="status-indicator status-completed">Étape 1</span></h3>
-                        <p>Votre dossier a été reçu et enregistré dans notre système. Un accusé de réception vous a été envoyé par la poste.</p>
-                    </div>
-                </div>
-                
-                <div class="status-card">
-                    <div class="status-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="status-content">
-                        <h3 class="status-title">Vérification en cours <span class="status-indicator status-progress">Étape 2</span></h3>
-                        <p>Nos équipes vérifient actuellement l'éligibilité de votre dossier et la conformité des documents fournis.</p>
-                    </div>
-                </div>
-                
-                <div class="status-card">
-                    <div class="status-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <div class="status-content">
-                        <h3 class="status-title">Dossier validé <span class="status-indicator status-pending">Étape 3</span></h3>
-                        <p>Votre dossier a été validé. Vous recevrez une lettre de confirmation.</p>
-                    </div>
-                </div>
-                
-                <div class="status-card">
-                    <div class="status-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="status-content">
-                        <h3 class="status-title">Admission confirmée <span class="status-indicator status-pending">Étape 4</span></h3>
-                        <p>Félicitations ! Votre candidature a été acceptée. Vous allez recevoir une lettre avec les prochaines étapes à suivre et avec l'avancement de vos points..</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Boîte d'information importante -->
-            <div class="highlight-box">
-                <div class="highlight-icon">
-                    <i class="fas fa-question-circle"></i>
-                </div>
-                <div class="highlight-content">
-                    <h3>Besoin d'aide ?</h3>
-                    <p>Si vous avez des questions concernant votre candidature ou si vous rencontrez des difficultés avec votre inscription, n'hésitez pas à contacter notre équipe lors des permanences de candidatures.</p>
-                    <a href="#" class="cta-button">Les horaires des permanences </a>
-                </div>
-            </div>
-        </div>
     </section>
 
-            <!--Footer-->
-            <footer>
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>À propos de nous</h3>
-                        <p>Nous sommes une société immobilière de services publique</p>
-                        <p>Notre mission est de vous offrir les meilleurs services possibles et un logement pour tous</p>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Liens rapides</h3>
-                        <ul>
-                            <li><a href="home.html">Accueil</a></li>
-                            <li><a href="je_suis_candidats.html">Je suis candidats</a></li>
-                            <li><a href="je_suis_candidats.html">Je suis habitants</a></li>
-                            <li><a href="a_propos.html">À propos</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="nos_partenaires.html">Nos quartiers</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Contact</h3>
-                        <p><i class="fa fa-phone"></i> +32 23 45 67 89</p>
-                        <p><i class="fa fa-envelope"></i> contact@monsite.com</p>
-                        <p><i class="fa fa-map-marker"></i> Rue de Birmingham 221, 1070 Anderlecht</p>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Site Web FoyerAnderlechtois. Tous droits réservés.</p>
-                </div>
-            </footer>
-    
-    <script>
-        // Animation d'apparition des éléments au scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            const elements = document.querySelectorAll('.video-card, .flex-container, .highlight-box, .section-header, .step-card, .status-card, .section-divider');
-            
-            elements.forEach(el => {
-                el.style.opacity = 0;
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                
-                observer.observe(el);
-            });
-            
-            // Classe pour l'animation
-            document.head.insertAdjacentHTML('beforeend', `
-                <style>
-                    .animate-in {
-                        opacity: 1 !important;
-                        transform: translateY(0) !important;
-                    }
-                </style>
-            `);
-            
-            // Navigation fluide
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if(targetId !== '#') {
-                        document.querySelector(targetId).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    <div class="section-divider">
+      <div class="divider-icon"><i class="fas fa-chevron-down"></i></div>
+    </div>
+
+    <!-- SECTION 2: Comment s'inscrire -->
+    <section id="inscription" class="main-section">
+      <div class="section-header">
+        <h1 class="section-title">Comment s'inscrire</h1>
+        <p class="section-subtitle">Trois étapes simples pour soumettre votre demande.</p>
+      </div>
+      <div class="section-content">
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+            <h3 class="step-title">Compléter le formulaire</h3>
+            <p>Remplissez le formulaire auprès des SISP ou téléchargez-le via la SLRB.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon"><i class="fas fa-upload"></i></div>
+            <h3 class="step-title">Joindre vos documents</h3>
+            <p>Ajoutez les justificatifs et déposez le dossier à l’accueil ou par la poste.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+            <h3 class="step-title">Validation</h3>
+            <p>Vous recevrez une confirmation avec votre numéro de dossier.</p>
+          </div>
+        </div>
+
+        <div class="flex-container" style="margin-top: 3rem;">
+          <div class="content-card">
+            <h2 class="card-title">Documents nécessaires</h2>
+            <ul class="item-list">
+              <li>Carte d'identité ou titre de séjour</li>
+              <li>Certificat de résidence &lt; 3 mois</li>
+              <li>Justificatifs de revenus (3 mois)</li>
+              <li>Attestation de non-propriété</li>
+            </ul>
+          </div>
+          <div class="flex-image">
+            <img src="asset/2152177.jpg" alt="Exemples de documents requis">
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="highlight-content">
+            <h3>Délais importants</h3>
+            <p>Traitement sous 90 jours après dépôt du dossier complet.</p>
+            <a href="#" class="cta-button">Accéder au formulaire</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider">
+      <div class="divider-icon"><i class="fas fa-chevron-down"></i></div>
+    </div>
+
+    <!-- SECTION 3: Suivi de la candidature -->
+    <section id="suivi" class="main-section">
+      <div class="section-header">
+        <h1 class="section-title">Suivre ma candidature</h1>
+        <p class="section-subtitle">Consultez les étapes d’évaluation et les statuts possibles.</p>
+      </div>
+      <div class="section-content">
+        <div class="flex-container">
+          <div class="flex-image">
+            <img src="asset/Man stopping minute hand of clock with finger.jpg" alt="Illustration du suivi administratif">
+          </div>
+          <div class="content-card">
+            <h2 class="card-title">Comment suivre votre dossier</h2>
+            <ol class="numbered-list">
+              <li>Un accusé de réception est envoyé sous 90 jours.</li>
+              <li>Prévenez tout changement (adresse, membres du foyer).</li>
+              <li>Suivez les mises à jour par courrier uniquement.</li>
+            </ol>
+            <p class="card-description">Notifications envoyées par courrier en cas d’évolution.</p>
+          </div>
+        </div>
+
+        <h2 class="card-title" style="margin-top: 3rem; text-align: center;">Les statuts possibles</h2>
+        <div class="status-container">
+          <div class="status-card">
+            <div class="status-icon"><i class="fas fa-hourglass-start"></i></div>
+            <div class="status-content">
+              <h3 class="status-title">Dossier reçu <span class="status-indicator status-completed">Étape 1</span></h3>
+              <p>Dossier enregistré. Un accusé de réception est envoyé.</p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-icon"><i class="fas fa-search"></i></div>
+            <div class="status-content">
+              <h3 class="status-title">Vérification en cours <span class="status-indicator status-progress">Étape 2</span></h3>
+              <p>Analyse d’éligibilité et conformité des documents.</p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="status-content">
+              <h3 class="status-title">Dossier validé <span class="status-indicator status-pending">Étape 3</span></h3>
+              <p>Confirmation envoyée. Dossier inscrit dans le système.</p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-icon"><i class="fas fa-handshake"></i></div>
+            <div class="status-content">
+              <h3 class="status-title">Admission confirmée <span class="status-indicator status-pending">Étape 4</span></h3>
+              <p>Votre candidature est acceptée. Prochaines étapes à suivre.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-icon">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <div class="highlight-content">
+            <h3>Besoin d'aide ?</h3>
+            <p>Contactez-nous pendant les permanences pour toute question.</p>
+            <a href="contact.html" class="cta-button">Horaires des permanences</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>À propos de nous</h3>
+        <p>Société immobilière de service public à Bruxelles.</p>
+        <p>Nous proposons un logement pour tous, équitable et de qualité.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Liens rapides</h3>
+        <ul>
+          <li><a href="home.html">Accueil</a></li>
+          <li><a href="je_suis_candidats.html">Je suis candidat</a></li>
+          <li><a href="habitant.html">Je suis habitant</a></li>
+          <li><a href="a_propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fa fa-phone"></i> +32 23 45 67 89</p>
+        <p><i class="fa fa-envelope"></i> contact@monsite.com</p>
+        <p><i class="fa fa-map-marker"></i> Rue de Birmingham 221, 1070 Anderlecht</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Site Web Foyer Anderlechtois. Tous droits réservés.</p>
+    </div>
+  </footer>
 </body>
 </html>

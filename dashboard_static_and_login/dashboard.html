@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <!-- Utilisation de Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles_dashboard.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-title">Dashboard Admin</div>
+        <nav class="sidebar-nav">
+            <a href="#" class="sidebar-item active" data-tab="alerts">
+                <i class="fas fa-bell"></i>
+                <span>Alertes</span>
+            </a>
+            <a href="#" class="sidebar-item" data-tab="photos">
+                <i class="fas fa-image"></i>
+                <span>Photos</span>
+            </a>
+            <a href="#" class="sidebar-item" data-tab="buildings">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Bâtiments</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Accueil Site</span>
+            </a>
+            <a href="#" class="sidebar-item" data-tab="settings">
+                <i class="fas fa-cog"></i>
+                <span>Paramètres</span>
+            </a>
+            <div class="sidebar-logout">
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <h1 class="header-title">Gestion des alertes</h1>
+            <div class="header-actions">
+                <div class="header-search">
+                    <input type="text" placeholder="Rechercher...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-user">A</div>
+            </div>
+        </header>
+
+        <main class="content">
+            <!-- Alertes -->
+            <div class="tab-content" id="alerts-tab">
+                <div class="content-header">
+                    <h2 class="content-title">Liste des alertes</h2>
+                    <button class="btn btn-primary" id="add-alert-btn">
+                        <i class="fas fa-plus"></i>
+                        Nouvelle alerte
+                    </button>
+                </div>
+
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Message</th>
+                                <th>Niveau</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="alerts-table-body">
+                            <!-- Le contenu sera généré par JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Photos -->
+            <div class="tab-content hidden" id="photos-tab">
+                <div class="content-header">
+                    <h2 class="content-title">Gestion des photos</h2>
+                    <button class="btn btn-primary" id="add-photo-btn">
+                        <i class="fas fa-plus"></i>
+                        Ajouter une photo
+                    </button>
+                </div>
+
+                <div class="photos-grid" id="photos-grid">
+                    <!-- Le contenu sera généré par JavaScript -->
+                </div>
+            </div>
+
+            <!-- Bâtiments -->
+            <div class="tab-content hidden" id="buildings-tab">
+                <div class="content-header">
+                    <h2 class="content-title">Gestion des bâtiments</h2>
+                    <button class="btn btn-primary" id="add-building-btn">
+                        <i class="fas fa-plus"></i>
+                        Ajouter un bâtiment
+                    </button>
+                </div>
+
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Adresse</th>
+                                <th>Coordonnées</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="buildings-table-body">
+                            <!-- Le contenu sera généré par JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card card-map">
+                    <h3 class="content-title" style="margin-bottom: 1rem;">Carte des bâtiments</h3>
+                    <div class="map-placeholder">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Carte interactive (statique pour la démonstration)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paramètres -->
+            <div class="tab-content hidden" id="settings-tab">
+                <div class="card">
+                    <div class="settings-panel">
+                        <h2 class="content-title" style="margin-bottom: 1.5rem;">Paramètres du compte</h2>
+                        
+                        <div class="settings-section">
+                            <h3 class="settings-subtitle">Informations personnelles</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" value="Admin">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Nom</label>
+                                    <input type="text" class="form-control" value="Utilisateur">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" value="admin@example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3 class="settings-subtitle">Changement de mot de passe</h3>
+                            <div class="form-group">
+                                <label class="form-label">Mot de passe actuel</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Nouveau mot de passe</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Confirmer le mot de passe</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 1rem;">
+                            <button class="btn btn-primary">Sauvegarder les modifications</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Modal Alerte -->
+    <div class="modal-backdrop hidden" id="alert-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Ajouter une alerte</h3>
+                <button class="modal-close" id="close-alert-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <input type="text" class="form-control" id="alert-message">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Niveau</label>
+                    <select class="form-control" id="alert-level">
+                        <option value="info">Information</option>
+                        <option value="warning">Avertissement</option>
+                        <option value="danger">Urgent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-alert-modal">Annuler</button>
+                <button class="btn btn-primary" id="save-alert">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Photo -->
+    <div class="modal-backdrop hidden" id="photo-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Ajouter une photo</h3>
+                <button class="modal-close" id="close-photo-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Titre</label>
+                    <input type="text" class="form-control" id="photo-title">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Bâtiment</label>
+                    <select class="form-control" id="photo-building">
+                        <!-- Options générées par JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Photo</label>
+                    <div class="file-upload">
+                        <i class="fas fa-image file-upload-icon"></i>
+                        <div class="file-upload-text">
+                            <a class="file-upload-link">Télécharger un fichier</a> ou glisser-déposer
+                        </div>
+                        <p style="font-size: 0.75rem; color: #6b7280; margin-top: 0.5rem;">
+                            PNG, JPG jusqu'à 10MB
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-photo-modal">Annuler</button>
+                <button class="btn btn-primary" id="save-photo">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bâtiment -->
+    <div class="modal-backdrop hidden" id="building-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Ajouter un bâtiment</h3>
+                <button class="modal-close" id="close-building-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="building-name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Adresse</label>
+                    <input type="text" class="form-control" id="building-address">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Coordonnées</label>
+                    <input type="text" class="form-control" id="building-coordinates" placeholder="ex: 48.8566, 2.3522">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Sélectionner sur la carte</label>
+                    <div class="map-placeholder" style="height: 16rem;">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p style="font-size: 0.75rem;">Carte interactive (statique pour la démonstration)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-building-modal">Annuler</button>
+                <button class="btn btn-primary" id="save-building">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+    <script src="script_sashboard.js"></script>
+</body>
+</html>

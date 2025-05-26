@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #F0F2F2; /* Gris perle pour l'arrière-plan global */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.login-header {
+    background-color: #0D4D4F; /* Bleu canard foncé pour l'en-tête */
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.login-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.login-form {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #217074; /* Bleu canard original pour les labels */
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #217074; /* Bleu canard original pour les bordures au focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(33, 112, 116, 0.1);
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.remember-me input {
+    margin-right: 0.5rem;
+    accent-color: #217074; /* Bleu canard original pour le checkbox */
+}
+
+.remember-me label {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #5A9A9D; /* Bleu canard clair pour les boutons */
+    color: white;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #217074; /* Bleu canard original pour l'effet hover */
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 154, 157, 0.3);
+}
+
+.alert {
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #217074; /* Bleu canard original pour le lien */
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: #0D4D4F; /* Bleu canard foncé au survol */
+    text-decoration: underline;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #5A9A9D; /* Bleu canard clair pour l'icône */
+}
+
+.toggle-password:hover {
+    color: #217074; /* Bleu canard original au survol */
+}
+
+.brand-logo {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: white;
+}
+
+/* Personnalisation des messages d'alerte */
+.alert-custom {
+    background-color: rgba(90, 154, 157, 0.1);
+    color: #217074;
+    border: 1px solid rgba(33, 112, 116, 0.2);
+}
+
+/* Effet subtil sur les champs de formulaire au survol */
+.form-control:hover {
+    border-color: #5A9A9D;
+}
