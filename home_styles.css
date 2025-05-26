@@ -97,6 +97,18 @@ body {
   padding: 0;
 }
 
+.nav-links li.nav-button {
+  margin-left: 15px;
+}
+
+.nav-links li.nav-button button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .nav-links li {
   margin: 0 15px;
 }
@@ -765,4 +777,28 @@ footer {
 
 .filter-name {
   font-weight: bold;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .navbar.scrolled {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .nav-links a,
+body.dark-mode .nav-links li.nav-button button {
+  color: #fff;
+}
+
+body.dark-mode footer {
+  background-color: #111;
+}
+
+body.dark-mode .footer-bottom {
+  background-color: #000;
+  color: #ccc;
 }
