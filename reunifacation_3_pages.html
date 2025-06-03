@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Foyer Anderlechtois</title>
+    <link rel="icon" href="asset/FA-logo full colors_RED_no text.svg" type="image/svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles_3_pages.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="home.html" class="logo">
+                <img src="asset/FA-logo full colors_RED_no text.svg" alt="Logo Foyer Anderlechtois">
+                <div class="logo-text">Foyer <span>Anderlechtois</span></div>
+            </a>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars open-menu"></i>
+                <i class="fas fa-times close-menu"></i>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html" data-i18n="nav_home">Accueil</a></li>
+                <li><a href="je_suis_candidats.html" data-i18n="nav_candidate">Je suis candidat</a></li>
+                <li><a href="habitant.html" data-i18n="nav_inhabitant">Je suis habitant</a></li>
+                <li><a href="a_propos.html" data-i18n="nav_about">À propos</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="nos_quartiers.html" data-i18n="nav_districts">Nos quartiers</a></li>
+                <li class="nav-button"><button id="lang-switch">EN</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Navigation des sections -->
+    <div class="section-nav">
+        <div class="section-nav-item active" data-target="about">
+            <span class="tooltip">À propos de nous</span>
+        </div>
+        <div class="section-nav-item" data-target="gouvernance">
+            <span class="tooltip">Gouvernance</span>
+        </div>
+        <div class="section-nav-item" data-target="partenaires">
+            <span class="tooltip">Nos partenaires</span>
+        </div>
+    </div>
+
+    <!-- Section 1: À propos -->
+    <section id="about" class="main-section about-section visible">
+        <div class="container">
+            <div class="info-content">
+                <div class="info-text">
+                    <h1>À propos de nous</h1>
+                    <p>Face aux enjeux sociaux, économiques et climatiques, le Foyer Anderlechtois développe, rénove et entretient un patrimoine immobilier, locatif public avec un accompagnement social de qualité, pour améliorer le cadre de vie de tous.</p>
+                    <p>Fondée en 1907, notre organisation a connu une croissance constante tout en restant fidèle à sa vision originale. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptates excepturi in nobis! Provident dolor, quo aperiam, mollitia exercitationem eius nam est amet, cupiditate consequatur inventore ut minima?</p>
+                </div>
+                <div class="key-figures">
+                    <div class="figure-card">
+                        <div class="number">4500</div>
+                        <div class="label">logements</div>
+                    </div>
+                    <div class="figure-card">
+                        <div class="number">12000</div>
+                        <div class="label">habitants</div>
+                    </div>
+                    <div class="figure-card">
+                        <div class="number">150+</div>
+                        <div class="label">Employés</div>
+                    </div>
+                    <div class="figure-card">
+                        <div class="number">25</div>
+                        <div class="label">concierges</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mot du président -->
+            <div class="president-content">
+                <div class="president-image">
+                    <img src="/api/placeholder/400/320" alt="Notre Président">
+                </div>
+            </div>
+
+            <!-- Nos engagements -->
+            <div class="commitments-content">
+                <h2>Nos engagements</h2>
+                <div class="commitments-grid">
+                    <div class="commitment-card">
+                        <div class="commitment-icon">🌱</div>
+                        <h3>Développement durable</h3>
+                        <p>Nous nous engageons à réduire notre empreinte environnementale et à promouvoir des pratiques durables dans toutes nos activités.</p>
+                    </div>
+                    <div class="commitment-card">
+                        <div class="commitment-icon">🤝</div>
+                        <h3>Responsabilité sociale</h3>
+                        <p>Nous investissons dans les communautés locales et soutenons des initiatives qui favorisent l'éducation et le bien-être social.</p>
+                    </div>
+                    <div class="commitment-card">
+                        <div class="commitment-icon">🔍</div>
+                        <h3>Transparence</h3>
+                        <p>Nous croyons en l'honnêteté et la transparence dans toutes nos opérations et communications avec nos parties prenantes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rapport annuel -->
+            <div class="report-content">
+                <h2>Notre rapport annuel</h2>
+                <p>Découvrez nos réalisations, notre impact et nos projets pour l'avenir dans notre dernier rapport annuel. Un document complet qui illustre nos engagements.</p>
+                <a href="#" class="download-btn">
+                    <span>Télécharger le rapport</span>
+                    <i>📥</i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Gouvernance -->
+    <section id="gouvernance" class="main-section governance-section">
+        <div class="container">
+            <h1 class="section-title">Gouvernance</h1>
+            
+            <div class="governance-grid">
+                <div class="governance-card">
+                    <h3>Conseil d'administration</h3>
+                    <p>Le conseil d'administration est responsable de la direction stratégique et de la supervision générale de l'organisation. Composé de membres élus, il veille à ce que les activités de l'organisation soient conformes à sa mission et à ses valeurs fondamentales.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Comité de gestion</h3>
+                    <p>Le comité de gestion assure la mise en œuvre quotidienne des politiques établies par le conseil d'administration. Il supervise les aspects opérationnels et administratifs de l'organisation, facilitant la coordination entre les différents départements.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Direction générale</h3>
+                    <p>La direction générale, dirigée par le directeur général, est responsable de l'exécution de la stratégie de l'organisation. Elle prend les décisions opérationnelles majeures et représente l'organisation auprès des partenaires externes et des parties prenantes.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Comité de direction</h3>
+                    <p>Le comité de direction réunit les responsables des principaux départements de l'organisation. Il assure la cohérence des actions, facilite la communication interne et participe à l'élaboration des plans d'action pour atteindre les objectifs fixés.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Délégué social</h3>
+                    <p>Le délégué social joue un rôle essentiel dans le bien-être des membres de l'organisation. Il identifie les besoins sociaux, propose des initiatives pour améliorer la qualité de vie au travail et sert de médiateur dans la résolution des problèmes interpersonnels.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Transparence</h3>
+                    <p>Nous croyons en l'honnêteté et la transparence dans toutes nos opérations et communications avec nos parties prenantes. Cette transparence guide chacune de nos actions et décisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Nos Partenaires -->
+    <section id="partenaires" class="main-section partners-section">
+        <div class="container">
+            <h1 class="section-title">Nos Partenaires</h1>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 60px; color: #666;">Les organismes et institutions avec lesquels nous collaborons.</p>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>Communes et CPAS</h3>
+                    <p>Nous travaillons en étroite collaboration avec les communes et les Centres Publics d'Action Sociale (CPAS) de notre région. Ce partenariat essentiel nous permet de coordonner nos actions et d'optimiser l'aide apportée aux citoyens.</p>
+                    <p>Les communes partenaires nous aident à identifier les besoins prioritaires sur leur territoire et participent activement à la mise en œuvre de nos projets communs.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary">Vers la commune</a>
+                        <a href="#" class="btn btn-secondary">Vers le CPAS</a>
+                    </div>
+                </div>
+                
+                <div class="partner-card">
+                    <h3>Service d'accompagnement social des locataires sociaux</h3>
+                    <p>Notre service d'accompagnement social travaille quotidiennement aux côtés des locataires sociaux pour les aider dans leurs démarches administratives, la gestion de leur logement et l'intégration dans leur environnement.</p>
+                    <p>Ces équipes spécialisées proposent un soutien individualisé pour répondre aux besoins spécifiques de chaque locataire.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary">Contacter le service</a>
+                        <a href="#" class="btn btn-secondary">Services proposés</a>
+                    </div>
+                </div>
+                
+                <div class="partner-card">
+                    <h3>Projets de cohésion sociale</h3>
+                    <p>Les projets de cohésion sociale constituent un pilier essentiel de notre action. En partenariat avec diverses associations locales, nous mettons en place des initiatives visant à renforcer le lien social et à favoriser l'intégration de tous les habitants.</p>
+                    <p>Ces projets se déclinent sous différentes formes : ateliers participatifs, événements culturels, jardins partagés.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary">Découvrir nos projets</a>
+                        <a href="#" class="btn btn-secondary">Calendrier des activités</a>
+                    </div>
+                </div>
+                
+                <div class="partner-card">
+                    <h3>Conseil consultatif des locataires</h3>
+                    <p>Le Conseil consultatif des locataires (Cocolo) est un organe essentiel de démocratie participative au sein de notre structure. Composé de représentants élus par les locataires, il permet de faire remonter les préoccupations et propositions des résidents.</p>
+                    <p>Le Cocolo est consulté sur les questions relatives à la gestion des logements, aux projets d'amélioration et aux politiques qui concernent directement les locataires.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary">Membres du conseil</a>
+                        <a href="#" class="btn btn-secondary">Comment participer</a>
+                    </div>
+                </div>
+                
+                <div class="partner-card">
+                    <h3>Nos autres partenaires</h3>
+                    <p>Au-delà des partenaires institutionnels, nous collaborons avec de nombreux acteurs du territoire pour enrichir notre action et proposer des services toujours plus adaptés aux besoins de nos usagers.</p>
+                    <p>Parmi ces partenaires, on compte des associations culturelles et sportives, des établissements scolaires, des structures d'insertion professionnelle, la citoyenneté et la justice, la famille et la santé, l'enseignement et la formation, l'emploi et la protection sociale, la consommation, les loisirs et bien d'autres encore.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary">Voir tous nos partenaires</a>
+                        <a href="#" class="btn btn-secondary">Devenir partenaire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos de nous</h3>
+                <p>Nous sommes une société immobilière de services publique</p>
+                <p>Notre mission est de vous offrir les meilleurs services possibles et un logement pour tous</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="home.html">Accueil</a></li>
+                    <li><a href="je_suis_candidats.html">Je suis candidat</a></li>
+                    <li><a href="habitant.html">Je suis habitant</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="nos_quartiers.html">Nos quartiers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fa fa-phone"></i> +32 23 45 67 89</p>
+                <p><i class="fa fa-envelope"></i> contact@monsite.com</p>
+                <p><i class="fa fa-map-marker"></i> Rue de Birmingham 221, 1070 Anderlecht</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Site Web FoyerAnderlechtois. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion de la navbar responsive
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Effet de la navbar au scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Navigation entre les sections
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('.main-section');
+            const navItems = document.querySelectorAll('.section-nav-item');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = (
+                    rect.top <= window.innerHeight / 2 &&
+                    rect.bottom >= window.innerHeight / 2
+                );
+                
+                if (isVisible) {
+                    section.classList.add('visible');
+                    
+                    // Mettre à jour la navigation
+                    navItems.forEach(item => item.classList.remove('active'));
+                    if (navItems[index]) {
+                        navItems[index].classList.add('active');
+                    }
+                }
+            });
+        }
+        
+        // Navigation par clic sur les points
+        document.querySelectorAll('.section-nav-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const targetId = item.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navigation par les liens du dropdown
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Vérifier la visibilité au chargement et au défilement
+        window.addEventListener('load', updateActiveSection);
+        window.addEventListener('scroll', updateActiveSection);
+        window.addEventListener('resize', updateActiveSection);
+        
+        // Afficher la première section au chargement
+        document.querySelector('.main-section').classList.add('visible');
+    </script>
+</body>
+</html>
