@@ -1,4 +1,3 @@
-/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -171,43 +170,6 @@ body {
 
   .menu-toggle.active .close-menu {
       display: block;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-accueil h1 {
-      font-size: 2.2rem;
-  }
-
-  .section-accueil p {
-      font-size: 1.1rem;
-  }
-
-  .buttons-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-  }
-
-  .carte-container {
-      height: 400px;
-  }
-
-  .btn {
-      width: 100%;
-      max-width: 280px;
-  }
-
-  .navbar .logo-text {
-      font-size: 1rem;
-  }
-
-  .navbar .logo img {
-      height: 40px;
-  }
-
-  .navbar.scrolled .logo img {
-      height: 32px;
   }
 }
 
@@ -485,7 +447,7 @@ body {
 }
 
 .accordion-content.active {
-  max-height: 500px;
+  max-height: 800px;
   padding: 20px;
   border-top: 1px solid #e0e0e0;
 }
@@ -494,6 +456,108 @@ body {
   margin-bottom: 15px;
   color: #666;
   line-height: 1.7;
+}
+
+/* NOUVEAUX STYLES POUR LES SOUS-ONGLETS */
+.district-tabs {
+  display: flex;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  border: 1px solid #e1e5e9;
+}
+
+.district-tab {
+  flex: 1;
+  min-width: 120px;
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: var(--transition);
+  white-space: nowrap;
+  position: relative;
+}
+
+.district-tab:hover {
+  background-color: rgba(42, 57, 144, 0.1);
+  color: var(--primary-color);
+}
+
+.district-tab.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 4px rgba(42, 57, 144, 0.3);
+}
+
+.district-content {
+  display: none;
+  animation: fadeInContent 0.3s ease;
+}
+
+.district-content.active {
+  display: block;
+}
+
+@keyframes fadeInContent {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.district-info {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.district-info h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.district-info h4 i {
+  margin-right: 8px;
+  color: var(--secondary-color);
+}
+
+.district-info p {
+  margin-bottom: 10px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.district-info ul {
+  margin-left: 20px;
+  color: #666;
+}
+
+.district-info li {
+  margin-bottom: 5px;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f9ff 100%);
+  border: 1px solid #b3d9ff;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.highlight-box .icon {
+  color: var(--primary-color);
+  margin-right: 8px;
 }
 
 .btn-more {
@@ -522,79 +586,6 @@ body {
 
 .btn-more:hover i {
   transform: translateX(4px);
-}
-
-/* Cards */
-.card-container {
-  margin: 40px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.info-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  padding: 30px;
-  text-align: center;
-  max-width: 500px;
-  transition: var(--transition);
-  border-top: 4px solid var(--secondary-color);
-}
-
-.info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.card-icon {
-  width: 70px;
-  height: 70px;
-  background-color: #e3f2fd;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-}
-
-.card-icon.warning {
-  background-color: #fff3e0;
-}
-
-.card-icon i {
-  font-size: 30px;
-  color: var(--primary-color);
-}
-
-.card-icon.warning i {
-  color: #f39c12;
-}
-
-.info-card h3 {
-  margin-bottom: 15px;
-  color: var(--dark-color);
-}
-
-.info-card p {
-  margin-bottom: 25px;
-  color: #666;
-}
-
-.btn-card {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: var(--secondary-color);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.btn-card:hover {
-  background-color: #2a9d8f;
-  transform: translateY(-2px);
 }
 
 /* Steps Container */
@@ -750,29 +741,7 @@ footer {
   color: #999;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   .hero-content h1 {
       font-size: 2rem;
@@ -797,17 +766,6 @@ footer {
       min-width: 90px;
   }
 
-  .quick-links {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-  }
-
-  .quick-link {
-      width: 100%;
-      max-width: 250px;
-  }
-
   .footer-section {
       min-width: 100%;
       margin: 2rem 0;
@@ -828,6 +786,17 @@ footer {
 
   .header-text {
       font-size: 0.9rem;
+  }
+
+  .district-tabs {
+      overflow-x: auto;
+      scrollbar-width: thin;
+  }
+
+  .district-tab {
+      min-width: 100px;
+      font-size: 0.8rem;
+      padding: 10px 12px;
   }
 }
 
@@ -877,16 +846,7 @@ footer {
       padding: 15px;
   }
 
-  .info-card {
-      padding: 20px;
-  }
-
-  .card-icon {
-      width: 50px;
-      height: 50px;
-  }
-
-  .card-icon i {
-      font-size: 22px;
+  .district-info {
+      padding: 15px;
   }
 }
